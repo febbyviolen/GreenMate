@@ -56,15 +56,23 @@
 		802CAF3D2A029A23005B80D1 /* GreenMate */ = {
 			isa = PBXGroup;
 			children = (
+				802CAF522A02ABA0005B80D1 /* View */,
 				802CAF3E2A029A23005B80D1 /* AppDelegate.swift */,
 				802CAF402A029A23005B80D1 /* SceneDelegate.swift */,
-				802CAF422A029A23005B80D1 /* ViewController.swift */,
 				802CAF442A029A23005B80D1 /* Main.storyboard */,
 				802CAF472A029A25005B80D1 /* Assets.xcassets */,
 				802CAF492A029A25005B80D1 /* LaunchScreen.storyboard */,
 				802CAF4C2A029A25005B80D1 /* Info.plist */,
 			);
 			path = GreenMate;
+			sourceTree = "<group>";
+		};
+		802CAF522A02ABA0005B80D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				802CAF422A029A23005B80D1 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
