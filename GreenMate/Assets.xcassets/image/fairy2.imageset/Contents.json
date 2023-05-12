@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "polymode-style-angel--toy-soft-smooth-lighting-soft-pastel-colors-3d-blender-render-polycount-100631757.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
