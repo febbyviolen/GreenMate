@@ -19,11 +19,21 @@
 		802CAF4B2A029A25005B80D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802CAF492A029A25005B80D1 /* LaunchScreen.storyboard */; };
 		802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF532A03A304005B80D1 /* GreenMateList.swift */; };
 		802CAF562A03A304005B80D1 /* GreenMateList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802CAF542A03A304005B80D1 /* GreenMateList.xib */; };
+		8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352992A10C33700E203BB /* DeleteGreenMate.swift */; };
+		8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529B2A10CC6700E203BB /* CareViewController.swift */; };
+		8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */; };
+		805352A02A10D0F700E203BB /* CareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8053529E2A10D0F700E203BB /* CareCollectionViewCell.xib */; };
+		805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A12A10F4A000E203BB /* SerialNumberViewController.swift */; };
+		805352A42A11124700E203BB /* TakePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A32A11124700E203BB /* TakePictureViewController.swift */; };
+		805352A62A112F5900E203BB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A52A112F5900E203BB /* NickNameViewController.swift */; };
 		80580A412A0E4080004164F9 /* WithDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80580A3F2A0E4080004164F9 /* WithDateCell.swift */; };
 		80580A422A0E4080004164F9 /* WithDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80580A402A0E4080004164F9 /* WithDateCell.xib */; };
+		9763D3E60CE7944F9D78EE19 /* Pods_GreenMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31995DD32F1203287154A2EF /* Pods_GreenMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31995DD32F1203287154A2EF /* Pods_GreenMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4950777DD903C126BF4EF9E2 /* Pods-GreenMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenMate.release.xcconfig"; path = "Target Support Files/Pods-GreenMate/Pods-GreenMate.release.xcconfig"; sourceTree = "<group>"; };
 		8014F4282A0A26430017F90C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8014F42A2A0A3BA80017F90C /* EditDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailView.swift; sourceTree = "<group>"; };
 		8014F4312A0A7A5E0017F90C /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
@@ -38,8 +48,16 @@
 		802CAF4C2A029A25005B80D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		802CAF532A03A304005B80D1 /* GreenMateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenMateList.swift; sourceTree = "<group>"; };
 		802CAF542A03A304005B80D1 /* GreenMateList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreenMateList.xib; sourceTree = "<group>"; };
+		805352992A10C33700E203BB /* DeleteGreenMate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGreenMate.swift; sourceTree = "<group>"; };
+		8053529B2A10CC6700E203BB /* CareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
+		8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
+		8053529E2A10D0F700E203BB /* CareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CareCollectionViewCell.xib; sourceTree = "<group>"; };
+		805352A12A10F4A000E203BB /* SerialNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialNumberViewController.swift; sourceTree = "<group>"; };
+		805352A32A11124700E203BB /* TakePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewController.swift; sourceTree = "<group>"; };
+		805352A52A112F5900E203BB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		80580A3F2A0E4080004164F9 /* WithDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDateCell.swift; sourceTree = "<group>"; };
 		80580A402A0E4080004164F9 /* WithDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDateCell.xib; sourceTree = "<group>"; };
+		9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenMate.debug.xcconfig"; path = "Target Support Files/Pods-GreenMate/Pods-GreenMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +65,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9763D3E60CE7944F9D78EE19 /* Pods_GreenMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45355659E11DED07066EA41A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31995DD32F1203287154A2EF /* Pods_GreenMate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F44715E07C0F32FE7741645 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */,
+				4950777DD903C126BF4EF9E2 /* Pods-GreenMate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8014F42C2A0A7A120017F90C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +96,8 @@
 				8014F4322A0A7A5E0017F90C /* ToDoCell.xib */,
 				80580A3F2A0E4080004164F9 /* WithDateCell.swift */,
 				80580A402A0E4080004164F9 /* WithDateCell.xib */,
+				8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */,
+				8053529E2A10D0F700E203BB /* CareCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -69,6 +107,8 @@
 			children = (
 				802CAF3D2A029A23005B80D1 /* GreenMate */,
 				802CAF3C2A029A23005B80D1 /* Products */,
+				7F44715E07C0F32FE7741645 /* Pods */,
+				45355659E11DED07066EA41A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +143,11 @@
 				802CAF422A029A23005B80D1 /* ViewController.swift */,
 				802CAF532A03A304005B80D1 /* GreenMateList.swift */,
 				802CAF542A03A304005B80D1 /* GreenMateList.xib */,
+				805352992A10C33700E203BB /* DeleteGreenMate.swift */,
+				8053529B2A10CC6700E203BB /* CareViewController.swift */,
+				805352A12A10F4A000E203BB /* SerialNumberViewController.swift */,
+				805352A32A11124700E203BB /* TakePictureViewController.swift */,
+				805352A52A112F5900E203BB /* NickNameViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -114,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 802CAF4F2A029A26005B80D1 /* Build configuration list for PBXNativeTarget "GreenMate" */;
 			buildPhases = (
+				3796FF67E82093A374E51B75 /* [CP] Check Pods Manifest.lock */,
 				802CAF372A029A23005B80D1 /* Sources */,
 				802CAF382A029A23005B80D1 /* Frameworks */,
 				802CAF392A029A23005B80D1 /* Resources */,
+				D1DCD0626EFC6C1DDC712B9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +215,7 @@
 				802CAF4B2A029A25005B80D1 /* LaunchScreen.storyboard in Resources */,
 				8014F4342A0A7A5E0017F90C /* ToDoCell.xib in Resources */,
 				802CAF482A029A25005B80D1 /* Assets.xcassets in Resources */,
+				805352A02A10D0F700E203BB /* CareCollectionViewCell.xib in Resources */,
 				80580A422A0E4080004164F9 /* WithDateCell.xib in Resources */,
 				802CAF562A03A304005B80D1 /* GreenMateList.xib in Resources */,
 				802CAF462A029A23005B80D1 /* Main.storyboard in Resources */,
@@ -176,6 +224,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3796FF67E82093A374E51B75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1DCD0626EFC6C1DDC712B9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenMate/Pods-GreenMate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenMate/Pods-GreenMate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenMate/Pods-GreenMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		802CAF372A029A23005B80D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -183,9 +273,15 @@
 			files = (
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,
+				805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */,
+				805352A42A11124700E203BB /* TakePictureViewController.swift in Sources */,
+				8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */,
+				8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */,
+				8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */,
 				8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */,
 				802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */,
 				8014F42B2A0A3BA80017F90C /* EditDetailView.swift in Sources */,
+				805352A62A112F5900E203BB /* NickNameViewController.swift in Sources */,
 				8014F4292A0A26430017F90C /* DetailView.swift in Sources */,
 				802CAF412A029A23005B80D1 /* SceneDelegate.swift in Sources */,
 				80580A412A0E4080004164F9 /* WithDateCell.swift in Sources */,
@@ -330,13 +426,16 @@
 		};
 		802CAF502A029A26005B80D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HK9U3ZG9M5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenMate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -357,13 +456,16 @@
 		};
 		802CAF512A029A26005B80D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4950777DD903C126BF4EF9E2 /* Pods-GreenMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HK9U3ZG9M5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenMate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

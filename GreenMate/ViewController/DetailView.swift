@@ -12,6 +12,7 @@ class DetailView: UIViewController {
     var toDo = ["물주기", "환기하기", "영양관리"]
     var isToDo = true
 
+    @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var diaryBtn: UIButton!
     @IBOutlet weak var toDoBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +33,7 @@ class DetailView: UIViewController {
         tempBackground.layer.cornerRadius = 10
         humidityBackground.layer.cornerRadius = 10
         lightBackground.layer.cornerRadius = 10
+        img.layer.cornerRadius = 10
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ToDoCell", bundle: nil), forCellReuseIdentifier: "cell")
