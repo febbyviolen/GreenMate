@@ -26,6 +26,8 @@
 		805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A12A10F4A000E203BB /* SerialNumberViewController.swift */; };
 		805352A42A11124700E203BB /* TakePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A32A11124700E203BB /* TakePictureViewController.swift */; };
 		805352A62A112F5900E203BB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A52A112F5900E203BB /* NickNameViewController.swift */; };
+		805352A92A11E1BA00E203BB /* GreenMate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352A82A11E1BA00E203BB /* GreenMate.swift */; };
+		805352AB2A122E0800E203BB /* Care.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352AA2A122E0800E203BB /* Care.swift */; };
 		80580A412A0E4080004164F9 /* WithDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80580A3F2A0E4080004164F9 /* WithDateCell.swift */; };
 		80580A422A0E4080004164F9 /* WithDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80580A402A0E4080004164F9 /* WithDateCell.xib */; };
 		9763D3E60CE7944F9D78EE19 /* Pods_GreenMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31995DD32F1203287154A2EF /* Pods_GreenMate.framework */; };
@@ -55,6 +57,8 @@
 		805352A12A10F4A000E203BB /* SerialNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialNumberViewController.swift; sourceTree = "<group>"; };
 		805352A32A11124700E203BB /* TakePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewController.swift; sourceTree = "<group>"; };
 		805352A52A112F5900E203BB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		805352A82A11E1BA00E203BB /* GreenMate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenMate.swift; sourceTree = "<group>"; };
+		805352AA2A122E0800E203BB /* Care.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Care.swift; sourceTree = "<group>"; };
 		80580A3F2A0E4080004164F9 /* WithDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDateCell.swift; sourceTree = "<group>"; };
 		80580A402A0E4080004164F9 /* WithDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDateCell.xib; sourceTree = "<group>"; };
 		9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenMate.debug.xcconfig"; path = "Target Support Files/Pods-GreenMate/Pods-GreenMate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,9 +93,11 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8014F42C2A0A7A120017F90C /* View */ = {
+		8014F42C2A0A7A120017F90C /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				802CAF532A03A304005B80D1 /* GreenMateList.swift */,
+				802CAF542A03A304005B80D1 /* GreenMateList.xib */,
 				8014F4312A0A7A5E0017F90C /* ToDoCell.swift */,
 				8014F4322A0A7A5E0017F90C /* ToDoCell.xib */,
 				80580A3F2A0E4080004164F9 /* WithDateCell.swift */,
@@ -99,7 +105,7 @@
 				8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */,
 				8053529E2A10D0F700E203BB /* CareCollectionViewCell.xib */,
 			);
-			path = View;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		802CAF322A029A23005B80D1 = {
@@ -123,7 +129,7 @@
 		802CAF3D2A029A23005B80D1 /* GreenMate */ = {
 			isa = PBXGroup;
 			children = (
-				8014F42C2A0A7A120017F90C /* View */,
+				805352A72A11E18A00E203BB /* Model */,
 				802CAF522A02ABA0005B80D1 /* ViewController */,
 				802CAF3E2A029A23005B80D1 /* AppDelegate.swift */,
 				802CAF402A029A23005B80D1 /* SceneDelegate.swift */,
@@ -138,18 +144,26 @@
 		802CAF522A02ABA0005B80D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8014F42A2A0A3BA80017F90C /* EditDetailView.swift */,
-				8014F4282A0A26430017F90C /* DetailView.swift */,
 				802CAF422A029A23005B80D1 /* ViewController.swift */,
-				802CAF532A03A304005B80D1 /* GreenMateList.swift */,
-				802CAF542A03A304005B80D1 /* GreenMateList.xib */,
+				8014F4282A0A26430017F90C /* DetailView.swift */,
+				8014F42A2A0A3BA80017F90C /* EditDetailView.swift */,
 				805352992A10C33700E203BB /* DeleteGreenMate.swift */,
 				8053529B2A10CC6700E203BB /* CareViewController.swift */,
 				805352A12A10F4A000E203BB /* SerialNumberViewController.swift */,
 				805352A32A11124700E203BB /* TakePictureViewController.swift */,
 				805352A52A112F5900E203BB /* NickNameViewController.swift */,
+				8014F42C2A0A7A120017F90C /* CustomView */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		805352A72A11E18A00E203BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				805352A82A11E1BA00E203BB /* GreenMate.swift */,
+				805352AA2A122E0800E203BB /* Care.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805352AB2A122E0800E203BB /* Care.swift in Sources */,
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,
 				805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */,
@@ -280,6 +295,7 @@
 				8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */,
 				8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */,
 				802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */,
+				805352A92A11E1BA00E203BB /* GreenMate.swift in Sources */,
 				8014F42B2A0A3BA80017F90C /* EditDetailView.swift in Sources */,
 				805352A62A112F5900E203BB /* NickNameViewController.swift in Sources */,
 				8014F4292A0A26430017F90C /* DetailView.swift in Sources */,
