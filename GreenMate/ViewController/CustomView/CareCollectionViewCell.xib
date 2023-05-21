@@ -61,7 +61,7 @@
             </constraints>
             <size key="customSize" width="108" height="115"/>
             <connections>
-                <outlet property="background" destination="CpP-Wh-XUa" id="hCJ-4A-eWA"/>
+                <outlet property="background" destination="CpP-Wh-XUa" id="Gcs-Sa-bZ1"/>
                 <outlet property="icon" destination="WkP-eX-N5C" id="3uz-rp-w4e"/>
                 <outlet property="label" destination="Ub7-dc-L0E" id="sgU-tF-mS3"/>
             </connections>

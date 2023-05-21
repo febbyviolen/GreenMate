@@ -20,12 +20,6 @@ class ToDoCell: UITableViewCell {
         background.layer.cornerRadius = 15
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func addShadow(_ view: UIView) {
         view.layer.shadowOffset = CGSizeMake(0, 1);
         view.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)

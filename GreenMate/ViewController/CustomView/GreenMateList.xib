@@ -22,14 +22,14 @@
                         <rect key="frame" x="4.6666666666666714" y="2.6666666666666714" width="131" height="205"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M4S-go-VzG">
-                                <rect key="frame" x="5.3333333333333286" y="6" width="120" height="150"/>
+                                <rect key="frame" x="5.3333333333333286" y="7" width="120" height="132"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="5nm-x3-5kK"/>
+                                    <constraint firstAttribute="height" constant="132" id="5nm-x3-5kK"/>
                                     <constraint firstAttribute="width" constant="120" id="npV-F6-ROE"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-IR-Vez">
-                                <rect key="frame" x="8" y="160" width="94.666666666666671" height="31"/>
+                                <rect key="frame" x="8" y="149" width="94.666666666666671" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그린메이트 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y2-pa-ZOK">
                                         <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="18"/>
@@ -65,8 +65,8 @@
                             <constraint firstAttribute="bottom" secondItem="7nc-FR-ncg" secondAttribute="bottom" constant="4" id="0eo-hK-h2J"/>
                             <constraint firstItem="LpM-IR-Vez" firstAttribute="leading" secondItem="cnK-5C-Xdi" secondAttribute="leadingMargin" id="3cZ-NQ-nOu"/>
                             <constraint firstAttribute="height" constant="205" id="6A9-7u-bc7"/>
-                            <constraint firstItem="LpM-IR-Vez" firstAttribute="top" secondItem="M4S-go-VzG" secondAttribute="bottom" constant="4" id="QM3-fH-gTZ"/>
-                            <constraint firstAttribute="bottom" secondItem="LpM-IR-Vez" secondAttribute="bottom" constant="14" id="Y1z-dv-kbt"/>
+                            <constraint firstItem="LpM-IR-Vez" firstAttribute="top" secondItem="M4S-go-VzG" secondAttribute="bottom" constant="10" id="QM3-fH-gTZ"/>
+                            <constraint firstAttribute="bottom" secondItem="LpM-IR-Vez" secondAttribute="bottom" constant="25" id="Y1z-dv-kbt"/>
                             <constraint firstAttribute="trailing" secondItem="7nc-FR-ncg" secondAttribute="trailing" constant="5" id="s7p-mW-7DT"/>
                             <constraint firstItem="M4S-go-VzG" firstAttribute="centerX" secondItem="cnK-5C-Xdi" secondAttribute="centerX" id="vIP-ha-D9U"/>
                             <constraint firstAttribute="width" constant="131" id="y6Q-Sd-8o8"/>

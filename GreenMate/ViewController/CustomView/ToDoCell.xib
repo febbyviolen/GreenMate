@@ -29,6 +29,7 @@
                                         <color key="tintColor" name="textColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Mio-t4-2iP"/>
+                                            <constraint firstAttribute="height" constant="22" id="N6I-9y-PB3"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-0S-yDB">

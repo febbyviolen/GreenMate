@@ -24,10 +24,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var selectedPlant: UIImageView!
     
+    
     //MARK: Properties
     private var viewModel = ViewControllerViewModel()
     
-    //hold the selected item for the table view
+    
     let disposeBag = DisposeBag()
     
     //MARK: Lifecycle
@@ -45,7 +46,6 @@ class ViewController: UIViewController {
         selectedPlant.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDetail)))
         
         bindTableData()
-        
     }
     
     //to pass the selected item to the DetailView
@@ -53,8 +53,9 @@ class ViewController: UIViewController {
         if segue.identifier == "showDetailView" {
             let nController = segue.destination as? UINavigationController
             let destinationVC = nController?.topViewController as? DetailView
-            destinationVC?.selectedPlant = viewModel.selectedPlant
+            destinationVC?.sPlant.onNext(viewModel.selectedPlant)
         }
+        
     }
 }
 
@@ -80,9 +81,10 @@ extension ViewController {
             cell.img.image = UIImage(named: item.img)
             cell.plantType.text = item.type.name
             
-            cell.first.isHidden = item.temp <= 20 ? false : true
-            cell.second.isHidden = item.light <= 50 ? false : true
-            cell.third.isHidden = item.humidity <= 200 ? false : true
+            
+            cell.first.isHidden = item.toDo!.contains(Care.water) ? false : true
+            cell.second.isHidden = item.toDo!.contains(Care.vitamin) ? false : true
+            cell.third.isHidden = item.toDo!.contains(Care.air) ? false : true
             
             
         }.disposed(by: disposeBag)
@@ -126,23 +128,18 @@ extension ViewController {
 
 
 class ViewControllerViewModel {
-    var plants = PublishSubject<[GreenMate]>()
+    var plants = BehaviorRelay<[GreenMate]>(value: [])
     var selectedPlant: GreenMate?
     //fetch items from API 
     func fetchItems() {
-        let items = [GreenMate(name: "잇지", img: "plant2", type: .coffeenamu, light: 200, temp: 30, humidity: 73),
-                     GreenMate(name: "엣지", type: .hongkongyaja, light: 400, temp: 10, humidity: 70),
-                     GreenMate(name: "구린", type: .rosemary, light: 550, temp: 40, humidity: 75),
-                     GreenMate(name: "구름", img: "plant2", type: .asparagusnanus, light: 500, temp: 20, humidity: 80),
-                     GreenMate(name: "로제", type: .rosemary, light: 300, temp: 26, humidity: 77)]
+        let getItems = DataStore.shared.getItems()
         
         //the data has changed
-        plants.onNext(items)
-        selectedPlant = items.first
-        
-        //the data has completely changed
-        plants.onCompleted()
+        plants.accept(getItems)
+        selectedPlant = getItems.first
+    
     }
+    
     
 }
 

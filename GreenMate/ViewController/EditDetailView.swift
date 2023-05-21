@@ -8,9 +8,13 @@
 import UIKit
 
 class EditDetailView: UIViewController {
+    
+    var delegate: DetailBackDelegate!
 
-   
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var img: UIImageView!
+    
+    var selectedPlant: GreenMate?
     
     lazy var saveBtn: UIButton = {
         let button = UIButton(type: .system)
@@ -28,7 +32,10 @@ class EditDetailView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        
+        
+        textField.placeholder = selectedPlant?.name
+        
         img.layer.cornerRadius = 15
         view.addSubview(saveBtn)
         
@@ -38,13 +45,23 @@ class EditDetailView: UIViewController {
             saveBtn.widthAnchor.constraint(equalToConstant: 333),
             saveBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             saveBtn.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10)
-                ])
-        
-        
+        ])
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeleteGreenMate2" {
+            let VC = segue.destination as? DeleteGreenMate
+            VC?.selectedPlant = selectedPlant
+        }
+    }
+    
     @IBAction func saveAction(_ sender: Any) {
+        if textField.text != "" {selectedPlant?.changeName(textField.text!)
+            selectedPlant?.name = textField.text!
+            DataStore.shared.editItem(selectedPlant!)
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
@@ -52,6 +69,9 @@ class EditDetailView: UIViewController {
         navigationController?.popViewController(animated: true)
     }
  
+    
         
     
 }
+
+

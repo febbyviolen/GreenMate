@@ -18,8 +18,19 @@ class CareCollectionViewCell: UICollectionViewCell {
         // Initialization code
         
         background.layer.cornerRadius = 20
-        background.layer.borderColor = UIColor(named: "softGreen")?.cgColor
+        background.layer.borderColor = UIColor(named: "lightGreen")?.cgColor
         background.layer.borderWidth = 1
     }
+    
+    func setSelectedStyle() {
+        background.layer.backgroundColor = UIColor(named: "lightGreen")?.cgColor
+        icon.tintColor = .white
+    }
+
+    func setDeselectedStyle() {
+        background.layer.backgroundColor = UIColor(named: "background")?.cgColor
+        icon.tintColor = UIColor(named: "darkGreen")
+    }
+
 
 }

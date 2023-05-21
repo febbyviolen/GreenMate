@@ -9,9 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DetailView: UIViewController {
+protocol DetailBackDelegate {
+    func saveData(new: GreenMate)
+}
+
+class DetailView: UIViewController{
     
-    var toDo = ["물주기", "환기하기", "영양관리"]
     var isToDo = true
 
     @IBOutlet weak var img: UIImageView!
@@ -33,14 +36,33 @@ class DetailView: UIViewController {
     //to receive the selected item from ViewController
     var selectedPlant: GreenMate?
     var disposeBag = DisposeBag()
+    var sPlant = BehaviorSubject<GreenMate?>(value: nil)
     var toDoShown = BehaviorRelay<Bool>(value:true)
     var diaryShown = BehaviorRelay<Bool>(value:false)
+    var sortedKeysCount :[Int]?
+    var sortedValues :[Care]?
+    var arrCount = [Int]()
+    var sortedKeys : [String]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableLogic()
-        initData(selectedPlant!)
+        
+        sPlant.subscribe { [weak self] plant in
+            self?.initData(plant!)
+            self?.selectedPlant = plant
+        }
+        
+        DataStore.shared.items
+            .subscribe(onNext: { [weak self] plant in
+                if let plantToUpdate = plant.first(where: { $0.ID == self?.selectedPlant?.ID }) {
+                    self?.sPlant.onNext(plantToUpdate)
+                    self?.tableView.reloadData()
+                    self?.tableData()
+                }
+            }).disposed(by: disposeBag)
         
         addShadow(tempBackground)
         addShadow(humidityBackground)
@@ -52,50 +74,71 @@ class DetailView: UIViewController {
         img.layer.cornerRadius = 10
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: "ToDoCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.register(UINib(nibName: "WithDateCell", bundle: nil), forCellReuseIdentifier: "withDateCell")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEditDetailView" {
-            var VC = segue.destination as? EditDetailView
-            VC.
+            let VC = segue.destination as? EditDetailView
+            VC?.selectedPlant = selectedPlant
+        }
+        else if segue.identifier == "showDeleteGreenMate" {
+            let VC = segue.destination as? DeleteGreenMate
+            VC?.selectedPlant = selectedPlant
+        }
+        else if segue.identifier == "showCareViewController" {
+            let VC = segue.destination as? CareViewController
+            VC?.selectedPlant = selectedPlant
         }
     }
+    
     
 }
 
 extension DetailView {
+    
+    func tableData() {
+        sortedKeysCount = selectedPlant?.diary?.sorted{ $0.key > $1.key }.compactMap{ $0.value.count }
+        sortedValues = selectedPlant?.diary?.sorted{ $0.key > $1.key }.flatMap { $0.value.reversed() }
+        sortedKeys = selectedPlant?.diary?.sorted{ $0.key > $1.key }.compactMap{ $0.key }
+        arrCount = sortedKeys!.indices.map { sortedKeysCount!.prefix($0).reduce(0, +) }
+    }
+    
     func tableLogic() {
         toDoShown
-            .distinctUntilChanged()
             .map { $0 ? UIColor(named: "darkGreen")! : UIColor.systemGray2 }
-            .bind(onNext: { color in
-                self.toDoBtn.titleLabel?.textColor = color
+            .bind(onNext: { [weak self] color in
+                self?.toDoBtn.tintColor = color
             })
             .disposed(by: disposeBag)
 
         diaryShown
-            .distinctUntilChanged()
             .map { $0 ? UIColor(named: "darkGreen")! : UIColor.systemGray2 }
-            .bind(onNext: { color in
-                self.diaryBtn.titleLabel?.textColor = color
+            .bind(onNext: { [weak self] color in
+                self?.diaryBtn.tintColor = color
             })
             .disposed(by: disposeBag)
 
         toDoBtn.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.toDoShown.accept(true)
-                self?.diaryShown.accept(false)
-                self?.tableView.reloadData()
+                if self?.toDoShown.value == false {
+                    self?.toDoShown.accept(true)
+                    self?.diaryShown.accept(false)
+                    self?.tableView.reloadData()
+                }
             })
             .disposed(by: disposeBag)
 
         diaryBtn.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.toDoShown.accept(false)
-                self?.diaryShown.accept(true)
-                self?.tableView.reloadData()
+                if self?.diaryShown.value == false {
+                    self?.toDoShown.accept(false)
+                    self?.diaryShown.accept(true)
+                    self?.tableView.reloadData()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -123,41 +166,68 @@ extension DetailView {
         view.layer.shadowOpacity = 0.2
         view.layer.shadowRadius = 2
     }
+    
+    
+    
 }
 
-extension DetailView: UITableViewDataSource {
+extension DetailView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if toDoShown.value{
-            return (selectedPlant?.toDo?.count) ?? 0
+            return (selectedPlant?.toDo?.count ?? 0)
         } else {
-            return (selectedPlant?.diary?.count) ?? 0
+            return selectedPlant?.diary?.values.flatMap { $0 }.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if toDoShown.value{
+        if toDoShown.value {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ToDoCell
-            cell.label.text = toDo[indexPath.item]
+            let toDo = selectedPlant?.toDo
+            cell.icon.image = toDo![indexPath.item].icon
+            cell.label.text = toDo![indexPath.item].name
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "withDateCell") as! WithDateCell
-            if indexPath.item == 0 {
+            
+            if arrCount.contains(indexPath.item) {
                 cell.backgroundDate.isHidden = false
                 cell.month.isHidden = false
                 cell.date.isHidden = false
-            } else {
+                
+                let date = arrCount.firstIndex(of: indexPath.item)!
+                let split = sortedKeys?[date].split(separator: "-")
+                cell.month.text = "\(split![1])월"
+                cell.date.text = "\(split![2])일"
+            } else if !arrCount.contains(indexPath.item) {
                 cell.backgroundDate.isHidden = true
                 cell.month.isHidden = true
                 cell.date.isHidden = true
             }
             
-            cell.label.text = toDo[indexPath.item]
+            cell.label.text = sortedValues?[indexPath.item].name
+            cell.icon.image = sortedValues?[indexPath.item].icon
             return cell
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+ 
+        var care = selectedPlant?.toDo![indexPath.item]
+        selectedPlant?.addDiary(care!, for: formatDateForDisplay(date: Date()))
+        selectedPlant?.deleteTodo(care!)
+        
+        DataStore.shared.editItem(selectedPlant!)
+
+    }
+    
+    
+    func formatDateForDisplay(date: Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        return dateformatter.string(from: date)
+    }
 }
-
-
-

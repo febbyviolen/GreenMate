@@ -30,6 +30,7 @@
 		805352AB2A122E0800E203BB /* Care.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352AA2A122E0800E203BB /* Care.swift */; };
 		80580A412A0E4080004164F9 /* WithDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80580A3F2A0E4080004164F9 /* WithDateCell.swift */; };
 		80580A422A0E4080004164F9 /* WithDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80580A402A0E4080004164F9 /* WithDateCell.xib */; };
+		80EAF1B32A18EE9A00B78918 /* dummyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B22A18EE9A00B78918 /* dummyDatabase.swift */; };
 		9763D3E60CE7944F9D78EE19 /* Pods_GreenMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31995DD32F1203287154A2EF /* Pods_GreenMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		805352AA2A122E0800E203BB /* Care.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Care.swift; sourceTree = "<group>"; };
 		80580A3F2A0E4080004164F9 /* WithDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDateCell.swift; sourceTree = "<group>"; };
 		80580A402A0E4080004164F9 /* WithDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDateCell.xib; sourceTree = "<group>"; };
+		80EAF1B22A18EE9A00B78918 /* dummyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyDatabase.swift; sourceTree = "<group>"; };
 		9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenMate.debug.xcconfig"; path = "Target Support Files/Pods-GreenMate/Pods-GreenMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 			children = (
 				805352A82A11E1BA00E203BB /* GreenMate.swift */,
 				805352AA2A122E0800E203BB /* Care.swift */,
+				80EAF1B22A18EE9A00B78918 /* dummyDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */,
 				802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */,
 				805352A92A11E1BA00E203BB /* GreenMate.swift in Sources */,
+				80EAF1B32A18EE9A00B78918 /* dummyDatabase.swift in Sources */,
 				8014F42B2A0A3BA80017F90C /* EditDetailView.swift in Sources */,
 				805352A62A112F5900E203BB /* NickNameViewController.swift in Sources */,
 				8014F4292A0A26430017F90C /* DetailView.swift in Sources */,

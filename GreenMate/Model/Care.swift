@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Care: Codable {
+enum Care: Codable, CaseIterable {
     case water, vitamin, air
     
     var name: String {
@@ -27,9 +27,11 @@ enum Care: Codable {
         case .water:
             return UIImage(named: "wateringCan")!
         case .vitamin:
-            return UIImage(named: "cross.vial")!
+            return UIImage(systemName: "cross.vial")!
         case .air:
-            return UIImage(named: "wind")!
+            return UIImage(systemName: "wind")!
         }
     }
 }
+
+var care = Care.allCases

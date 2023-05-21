@@ -13,12 +13,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="juv-3a-STY" customClass="WithDateCell" customModule="GreenMate" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="juv-3a-STY" id="FNT-y8-vxv">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="juv-3a-STY" id="FNT-y8-vxv">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eot-9I-nEL">
-                        <rect key="frame" x="71" y="5" width="232" height="50"/>
+                        <rect key="frame" x="71" y="5" width="234" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1Tx-if-YWJ">
                                 <rect key="frame" x="15" y="14.999999999999998" width="63" height="20.333333333333329"/>
@@ -26,6 +26,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XE5-wM-Xg4">
                                         <rect key="frame" x="0.0" y="1.6666666666666661" width="21" height="17"/>
                                         <color key="tintColor" name="softGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.329999999999998" id="5Aa-5b-HGY"/>
+                                            <constraint firstAttribute="width" constant="21" id="Jxh-LW-OGX"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d95-ja-Iuq">
                                         <rect key="frame" x="36" y="0.0" width="27" height="20.333333333333332"/>
@@ -41,7 +45,6 @@
                             <constraint firstItem="1Tx-if-YWJ" firstAttribute="centerY" secondItem="Eot-9I-nEL" secondAttribute="centerY" id="2Ut-iA-eoJ"/>
                             <constraint firstAttribute="height" constant="50" id="5NG-hU-AUg"/>
                             <constraint firstItem="1Tx-if-YWJ" firstAttribute="leading" secondItem="Eot-9I-nEL" secondAttribute="leading" constant="15" id="SLR-5J-ltX"/>
-                            <constraint firstAttribute="width" constant="232" id="faw-H6-ERh"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-fJ-oBw">
@@ -76,11 +79,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Eot-9I-nEL" firstAttribute="centerY" secondItem="FNT-y8-vxv" secondAttribute="centerY" id="5Ib-EN-2Nw"/>
-                    <constraint firstAttribute="trailing" secondItem="Eot-9I-nEL" secondAttribute="trailing" constant="15" id="7oR-dt-lXf"/>
+                    <constraint firstAttribute="trailing" secondItem="Eot-9I-nEL" secondAttribute="trailing" constant="15" id="BIO-Ok-02T"/>
+                    <constraint firstItem="iNr-fJ-oBw" firstAttribute="leading" secondItem="FNT-y8-vxv" secondAttribute="leadingMargin" constant="-1" id="Mtf-Sk-0Qb"/>
                     <constraint firstItem="Eot-9I-nEL" firstAttribute="leading" secondItem="iNr-fJ-oBw" secondAttribute="trailing" constant="8" symbolic="YES" id="RiF-vG-S8w"/>
                     <constraint firstAttribute="bottom" secondItem="Eot-9I-nEL" secondAttribute="bottom" constant="5" id="UKD-Us-opp"/>
                     <constraint firstItem="Eot-9I-nEL" firstAttribute="top" secondItem="FNT-y8-vxv" secondAttribute="top" constant="5" id="cxQ-aj-W3P"/>
-                    <constraint firstItem="iNr-fJ-oBw" firstAttribute="leading" secondItem="FNT-y8-vxv" secondAttribute="leading" constant="15" id="mMi-WP-SpY"/>
                     <constraint firstItem="iNr-fJ-oBw" firstAttribute="top" secondItem="FNT-y8-vxv" secondAttribute="top" constant="5" id="w3O-2V-jPx"/>
                 </constraints>
             </tableViewCellContentView>
