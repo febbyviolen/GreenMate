@@ -953,10 +953,10 @@
             </objects>
             <point key="canvasLocation" x="2785.4961832061067" y="714.78873239436621"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Plant Type View Controller-->
         <scene sceneID="X0T-Vw-ZpI">
             <objects>
-                <viewController id="5Gm-3f-SzM" sceneMemberID="viewController">
+                <viewController id="5Gm-3f-SzM" customClass="SelectPlantTypeViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btu-N8-POt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -967,21 +967,32 @@
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" placeholder="식물 종류 검색하세요" translatesAutoresizingMaskIntoConstraints="NO" id="3HX-qE-123">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="식물 종류 검색하세요" translatesAutoresizingMaskIntoConstraints="NO" id="3HX-qE-123">
                                 <rect key="frame" x="20" y="129" width="353" height="50"/>
+                                <color key="backgroundColor" name="background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IQ6-Nb-dQH"/>
                                 </constraints>
-                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="5" vertical="0.0"/>
-                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <color key="tintColor" name="textColor"/>
+                                <color key="barTintColor" name="background"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="5Gm-3f-SzM" id="Thk-SV-NiJ"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qrt-UQ-Si1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qrt-UQ-Si1">
                                 <rect key="frame" x="26" y="194" width="341" height="516"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectType" id="0e6-zz-Sgh">
+                                        <rect key="frame" x="0.0" y="50" width="341" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0e6-zz-Sgh" id="snF-X5-Qu6">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jSO-Ls-Ulf"/>
@@ -1002,10 +1013,15 @@
                     <navigationItem key="navigationItem" id="23a-nc-7hB">
                         <barButtonItem key="leftBarButtonItem" image="backIcon" id="lnu-bb-NMk">
                             <color key="tintColor" name="textColor"/>
+                            <connections>
+                                <action selector="backBtn:" destination="5Gm-3f-SzM" id="d2b-DD-BIK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="zVO-tf-o6d" kind="show" id="FlO-XI-s05"/>
+                        <outlet property="searchBar" destination="3HX-qE-123" id="e08-Xh-lBA"/>
+                        <outlet property="tableView" destination="qrt-UQ-Si1" id="0BF-V5-kqO"/>
+                        <segue destination="zVO-tf-o6d" kind="show" identifier="showTakePictureController" id="FlO-XI-s05"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYF-qd-8Sn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1053,7 +1069,7 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="v0D-HH-WkK" kind="show" id="d5R-yA-dBa"/>
+                                            <action selector="nextBtn:" destination="zVO-tf-o6d" eventType="touchUpInside" id="Gdo-wo-06q"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1086,6 +1102,7 @@
                         <outlet property="againBtn" destination="Rc5-in-hgM" id="gq2-MB-fG3"/>
                         <outlet property="img" destination="EfY-OD-9yG" id="LBS-Dc-q2d"/>
                         <outlet property="nextBtn" destination="BCD-Cd-JLy" id="fnk-8G-l4C"/>
+                        <segue destination="v0D-HH-WkK" kind="show" identifier="showNickNameController" id="XNM-SS-QH9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjl-0Q-aFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1145,6 +1162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="label" destination="fsn-Tc-TRs" id="fKc-fk-4wE"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToMain" id="96x-yI-9Rq"/>
                     </connections>
                 </viewController>
@@ -1169,12 +1187,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYg-Bx-CRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858.7786259541983" y="714.78873239436621"/>
+            <point key="canvasLocation" x="981" y="715"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="jij-Iq-ZMT"/>
-        <segue reference="Y1c-Vo-gPL"/>
+        <segue reference="96x-yI-9Rq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backIcon" width="25" height="24"/>

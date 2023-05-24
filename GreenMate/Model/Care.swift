@@ -35,3 +35,4 @@ enum Care: Codable, CaseIterable {
 }
 
 var care = Care.allCases
+

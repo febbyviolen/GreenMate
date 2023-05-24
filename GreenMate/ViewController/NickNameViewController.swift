@@ -9,6 +9,10 @@ import UIKit
 
 class NickNameViewController: UIViewController {
     
+    var img: UIImage!
+    var type: PlantType!
+    @IBOutlet weak var label: UITextField!
+    
     lazy var saveBtn: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -41,17 +45,9 @@ class NickNameViewController: UIViewController {
     
     
     @objc func nextAction() {
+        var newGreenMate = GreenMate(name: label.text!, img: "plant1", type: type, light: 0, temp: 0, humidity: 0)
+        DataStore.shared.addItems(newGreenMate)
         performSegue(withIdentifier: "backToMain", sender: self)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
