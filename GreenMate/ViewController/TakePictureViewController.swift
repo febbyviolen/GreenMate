@@ -14,6 +14,7 @@ class TakePictureViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     
     var newPlantType :PlantType!
+    var moduleId = "" 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class TakePictureViewController: UIViewController {
             let VC = segue.destination as! NickNameViewController
             VC.type = newPlantType
             VC.img = img.image
+            VC.moduleId = moduleId
         }
     }
     
@@ -42,6 +44,7 @@ class TakePictureViewController: UIViewController {
     
     @IBAction func nextBtn(_ sender: Any) {
         performSegue(withIdentifier: "showNickNameController", sender: self)
+        
     }
 }
 

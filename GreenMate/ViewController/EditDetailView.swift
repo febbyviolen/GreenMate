@@ -7,14 +7,20 @@
 
 import UIKit
 
-class EditDetailView: UIViewController {
-    
-    var delegate: DetailBackDelegate!
+protocol EditDetailDelegate {
+    func nameChanged(controller: EditDetailView)
+}
 
+class EditDetailView: UIViewController{
+    
+    var delegate: EditDetailDelegate! = nil
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var img: UIImageView!
     
-    var selectedPlant: GreenMate?
+    var selectedPlant: Greenmate!
+    var network = Networking()
+    var imgsrc: UIImage!
     
     lazy var saveBtn: UIButton = {
         let button = UIButton(type: .system)
@@ -33,8 +39,8 @@ class EditDetailView: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-        textField.placeholder = selectedPlant?.name
+        img.image = imgsrc
+        textField.placeholder = selectedPlant?.nickname
         
         img.layer.cornerRadius = 15
         view.addSubview(saveBtn)
@@ -57,12 +63,12 @@ class EditDetailView: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        if textField.text != "" {selectedPlant?.changeName(textField.text!)
-            selectedPlant?.name = textField.text!
-            DataStore.shared.editItem(selectedPlant!)
+        if textField.text != "" {
+            network.updateGreenMateNickNameFunc([selectedPlant.moduleId, textField.text!])
+            delegate.nameChanged(controller: self)
+        } else {
+            navigationController?.popViewController(animated: true)
         }
-        
-        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func backButton(_ sender: Any) {

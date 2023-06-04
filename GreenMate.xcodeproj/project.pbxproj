@@ -30,7 +30,12 @@
 		805352AB2A122E0800E203BB /* Care.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352AA2A122E0800E203BB /* Care.swift */; };
 		80580A412A0E4080004164F9 /* WithDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80580A3F2A0E4080004164F9 /* WithDateCell.swift */; };
 		80580A422A0E4080004164F9 /* WithDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80580A402A0E4080004164F9 /* WithDateCell.xib */; };
+		805F65DE2A28726F0039223D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F65DD2A28726F0039223D /* EmptyViewController.swift */; };
 		808D97F52A1B131A005CAB30 /* PlantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808D97F42A1B131A005CAB30 /* PlantType.swift */; };
+		809434512A297D5A00230206 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809434502A297D5A00230206 /* TestViewController.swift */; };
+		809434532A29A06500230206 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809434522A29A06500230206 /* Test2ViewController.swift */; };
+		809434552A29C84A00230206 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809434542A29C84A00230206 /* AWSS3Manager.swift */; };
+		80E248402A24503B00D3A3CC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2483F2A24503B00D3A3CC /* Networking.swift */; };
 		80EAF1B32A18EE9A00B78918 /* dummyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B22A18EE9A00B78918 /* dummyDatabase.swift */; };
 		80EAF1B52A1A59BA00B78918 /* SelectPlantTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B42A1A59BA00B78918 /* SelectPlantTypeViewController.swift */; };
 		80EAF1B82A1A59FF00B78918 /* SelectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B62A1A59FF00B78918 /* SelectType.swift */; };
@@ -66,7 +71,12 @@
 		805352AA2A122E0800E203BB /* Care.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Care.swift; sourceTree = "<group>"; };
 		80580A3F2A0E4080004164F9 /* WithDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDateCell.swift; sourceTree = "<group>"; };
 		80580A402A0E4080004164F9 /* WithDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDateCell.xib; sourceTree = "<group>"; };
+		805F65DD2A28726F0039223D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		808D97F42A1B131A005CAB30 /* PlantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantType.swift; sourceTree = "<group>"; };
+		809434502A297D5A00230206 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		809434522A29A06500230206 /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
+		809434542A29C84A00230206 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
+		80E2483F2A24503B00D3A3CC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		80EAF1B22A18EE9A00B78918 /* dummyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyDatabase.swift; sourceTree = "<group>"; };
 		80EAF1B42A1A59BA00B78918 /* SelectPlantTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlantTypeViewController.swift; sourceTree = "<group>"; };
 		80EAF1B62A1A59FF00B78918 /* SelectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectType.swift; sourceTree = "<group>"; };
@@ -141,6 +151,8 @@
 		802CAF3D2A029A23005B80D1 /* GreenMate */ = {
 			isa = PBXGroup;
 			children = (
+				80E2483F2A24503B00D3A3CC /* Networking.swift */,
+				809434542A29C84A00230206 /* AWSS3Manager.swift */,
 				805352A72A11E18A00E203BB /* Model */,
 				802CAF522A02ABA0005B80D1 /* ViewController */,
 				802CAF3E2A029A23005B80D1 /* AppDelegate.swift */,
@@ -165,7 +177,10 @@
 				80EAF1B42A1A59BA00B78918 /* SelectPlantTypeViewController.swift */,
 				805352A32A11124700E203BB /* TakePictureViewController.swift */,
 				805352A52A112F5900E203BB /* NickNameViewController.swift */,
+				805F65DD2A28726F0039223D /* EmptyViewController.swift */,
 				8014F42C2A0A7A120017F90C /* CustomView */,
+				809434502A297D5A00230206 /* TestViewController.swift */,
+				809434522A29A06500230206 /* Test2ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -302,15 +317,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				80EAF1B82A1A59FF00B78918 /* SelectType.swift in Sources */,
+				80E248402A24503B00D3A3CC /* Networking.swift in Sources */,
+				809434512A297D5A00230206 /* TestViewController.swift in Sources */,
 				805352AB2A122E0800E203BB /* Care.swift in Sources */,
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
+				805F65DE2A28726F0039223D /* EmptyViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,
 				805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */,
 				80EAF1B52A1A59BA00B78918 /* SelectPlantTypeViewController.swift in Sources */,
 				805352A42A11124700E203BB /* TakePictureViewController.swift in Sources */,
+				809434552A29C84A00230206 /* AWSS3Manager.swift in Sources */,
 				8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */,
 				8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */,
 				8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */,
+				809434532A29A06500230206 /* Test2ViewController.swift in Sources */,
 				8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */,
 				802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */,
 				805352A92A11E1BA00E203BB /* GreenMate.swift in Sources */,

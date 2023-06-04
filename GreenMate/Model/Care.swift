@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-enum Care: Codable, CaseIterable {
-    case water, vitamin, air
+enum Care: String, Codable, CaseIterable {
+    case water = "water", vitamin = "vitamin", air = "air"
     
     var name: String {
         switch self {

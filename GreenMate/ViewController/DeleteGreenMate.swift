@@ -13,7 +13,8 @@ class DeleteGreenMate: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     
-    var selectedPlant: GreenMate!
+    var selectedPlant: Greenmate!
+    var network = Networking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class DeleteGreenMate: UIViewController {
     }
     
     @IBAction func saveBtn(_ sender: Any) {
-        DataStore.shared.deleteItems(selectedPlant)
+        network.deleteModuleFunc(selectedPlant.moduleId)
         self.performSegue(withIdentifier: "backToViewController", sender: self)
     }
     

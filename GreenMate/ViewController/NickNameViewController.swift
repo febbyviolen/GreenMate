@@ -11,7 +11,10 @@ class NickNameViewController: UIViewController {
     
     var img: UIImage!
     var type: PlantType!
+    var moduleId = "" 
     @IBOutlet weak var label: UITextField!
+    var network = Networking()
+    
     
     lazy var saveBtn: UIButton = {
         let button = UIButton(type: .system)
@@ -39,15 +42,45 @@ class NickNameViewController: UIViewController {
                 ])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSerialNumber" {
+            let vc = segue.destination as! SerialNumberViewController
+            vc.plantData.append(contentsOf: [type.name, label.text ?? " "])
+            vc.img = img
+        }
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     
     @objc func nextAction() {
-        var newGreenMate = GreenMate(name: label.text!, img: "plant1", type: type, light: 0, temp: 0, humidity: 0)
-        DataStore.shared.addItems(newGreenMate)
-        performSegue(withIdentifier: "backToMain", sender: self)
+        if moduleId == "" {
+            performSegue(withIdentifier: "showSerialNumber", sender: self)
+        } else {
+            uploadToAWSS3()
+            network.relationModuleFunc([moduleId, type.name, label.text ?? " ", "testURL"])
+            performSegue(withIdentifier: "backToMain", sender: self)
+        }
+    }
+    
+    func uploadToAWSS3() {
+        guard let image = img else { return }
+        AWSS3Manager.shared.uploadImage(image: image, moduleId: moduleId, progress: {[weak self] ( uploadProgress) in
+            
+            guard let strongSelf = self else { return }
+            //            strongSelf.progressView.progress = Float(uploadProgress)
+            
+        }) {[weak self] (uploadedFileUrl, error) in
+            
+            guard let strongSelf = self else { return }
+            if let finalPath = uploadedFileUrl as? String {
+//                print("Uploaded file url: " + finalPath)
+            } else {
+                print("\(String(describing: error?.localizedDescription))")
+            }
+        }
     }
 
 }

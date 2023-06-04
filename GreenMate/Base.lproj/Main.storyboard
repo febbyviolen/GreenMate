@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,6 +29,9 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isUserInteractionDisabledWhenSkeletonIsActive" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잘 지내고 있나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVE-nA-Veo">
                                                 <rect key="frame" x="0.0" y="49" width="105.66666666666667" height="18"/>
@@ -37,6 +40,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YA9-BF-Kl6">
                                         <rect key="frame" x="266" y="1" width="67" height="65.666666666666671"/>
@@ -45,8 +51,14 @@
                                             <constraint firstAttribute="width" constant="67" id="3Fn-fE-OKy"/>
                                             <constraint firstAttribute="height" constant="67" id="nsO-Cx-7b8"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant1" translatesAutoresizingMaskIntoConstraints="NO" id="ldV-yL-Pxy">
                                 <rect key="frame" x="32.666666666666657" y="173" width="328" height="286"/>
@@ -55,6 +67,9 @@
                                     <constraint firstAttribute="height" constant="286" id="BNO-fO-G9p"/>
                                     <constraint firstAttribute="width" constant="328" id="VoH-7b-u1l"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="144" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-gd-Ucm">
                                 <rect key="frame" x="34.333333333333343" y="491" width="324.33333333333326" height="34.333333333333371"/>
@@ -62,7 +77,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xHR-0f-r0x">
                                         <rect key="frame" x="0.0" y="0.0" width="130.66666666666666" height="34.333333333333336"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTb-7G-gsn">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="나의 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTb-7G-gsn">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <color key="textColor" name="textColor"/>
@@ -73,14 +88,26 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <color key="textColor" name="darkGreen"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130.66999999999999" id="YBm-PL-IuS"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qba-Bx-tfF">
                                         <rect key="frame" x="274.66666666666669" y="0.0" width="49.666666666666686" height="34.333333333333336"/>
                                         <color key="tintColor" name="softGreen"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system" imagePlacement="trailing"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="Q15-Jb-IbN" kind="show" id="KXa-xu-OA0"/>
                                         </connections>
@@ -216,6 +243,9 @@
                                 <constraints>
                                     <constraint firstItem="3il-zT-qzT" firstAttribute="leading" secondItem="xnz-rB-Bbk" secondAttribute="leading" id="4KC-1v-6Sg"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="atV-D7-vbQ">
                                 <rect key="frame" x="25" y="535" width="343" height="212"/>
@@ -240,8 +270,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <size key="customSize" width="140" height="210"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionViewCell>
                                 </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -265,17 +301,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="2YZ-eO-XA5"/>
                     <connections>
+                        <outlet property="addButton" destination="Qba-Bx-tfF" id="l5S-28-WiJ"/>
                         <outlet property="humidity" destination="4Ys-EM-wfC" id="uNW-bC-1zp"/>
                         <outlet property="humidityBackground" destination="p2c-cy-Ntg" id="xM4-sw-rcO"/>
                         <outlet property="light" destination="SVq-eo-97p" id="g3c-VK-cZ6"/>
                         <outlet property="lightBackground" destination="N66-nf-zJd" id="JqP-Xp-LvU"/>
                         <outlet property="plantList" destination="atV-D7-vbQ" id="mzM-yM-5zi"/>
                         <outlet property="selectedPlant" destination="ldV-yL-Pxy" id="fMH-54-VS5"/>
+                        <outlet property="statusStack" destination="xnz-rB-Bbk" id="Eeb-vX-LTc"/>
                         <outlet property="temp" destination="3Xo-kq-Qa7" id="h9R-Q6-ynB"/>
                         <outlet property="tempBackground" destination="3il-zT-qzT" id="YR0-eZ-z1x"/>
+                        <outlet property="titlestack" destination="xHR-0f-r0x" id="bPb-pK-Vh3"/>
+                        <outlet property="titlestack2" destination="RH3-BT-BTi" id="PKB-87-FNx"/>
                         <outlet property="userName" destination="Kng-0o-Cdk" id="Wjk-di-riF"/>
                         <outlet property="userProfile" destination="YA9-BF-Kl6" id="OLD-5o-Asq"/>
                         <segue destination="6Cq-3D-Ie1" kind="show" identifier="showDetailView" id="6cP-2R-GcT"/>
+                        <segue destination="1Mg-QT-hSZ" kind="show" identifier="showIsEmpty" id="Ku4-PO-S9G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -597,7 +638,7 @@
         <!--Edit Detail View-->
         <scene sceneID="miV-ai-5me">
             <objects>
-                <viewController id="zqh-fE-xAo" customClass="EditDetailView" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditDetailView" id="zqh-fE-xAo" customClass="EditDetailView" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NO3-4v-bux">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -941,22 +982,23 @@
                             <color key="tintColor" name="textColor"/>
                             <connections>
                                 <action selector="backButton:" destination="m4T-NU-eMn" id="wuU-dC-cIs"/>
-                                <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="Y1c-Vo-gPL"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="backToMain" animates="NO" id="Y1c-Vo-gPL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="5Gm-3f-SzM" kind="show" identifier="greenMateFound" id="Q4L-Kz-Eu0"/>
+                        <outlet property="textField" destination="wIM-Ej-1pI" id="fqd-yU-zOe"/>
+                        <segue destination="D7E-zX-xSr" kind="show" identifier="greenMateFound" id="Q4L-Kz-Eu0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of1-hF-nIQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2785.4961832061067" y="714.78873239436621"/>
+            <point key="canvasLocation" x="1827" y="715"/>
         </scene>
         <!--Select Plant Type View Controller-->
         <scene sceneID="X0T-Vw-ZpI">
             <objects>
-                <viewController id="5Gm-3f-SzM" customClass="SelectPlantTypeViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5Gm-3f-SzM" customClass="SelectPlantTypeViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btu-N8-POt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1022,11 +1064,12 @@
                         <outlet property="searchBar" destination="3HX-qE-123" id="e08-Xh-lBA"/>
                         <outlet property="tableView" destination="qrt-UQ-Si1" id="0BF-V5-kqO"/>
                         <segue destination="zVO-tf-o6d" kind="show" identifier="showTakePictureController" id="FlO-XI-s05"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToMain" id="O3Y-Mv-vO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYF-qd-8Sn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3533.5877862595416" y="714.78873239436621"/>
+            <point key="canvasLocation" x="4460.3053435114498" y="714.78873239436621"/>
         </scene>
         <!--Take Picture View Controller-->
         <scene sceneID="e8a-Ww-I6l">
@@ -1107,12 +1150,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjl-0Q-aFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4349" y="715"/>
+            <point key="canvasLocation" x="5275.5725190839694" y="714.78873239436621"/>
         </scene>
         <!--Nick Name View Controller-->
         <scene sceneID="hND-nG-1Gf">
             <objects>
-                <viewController id="v0D-HH-WkK" customClass="NickNameViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="v0D-HH-WkK" customClass="NickNameViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4AR-W1-htR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1131,7 +1174,7 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="시리얼 넘버를 입력해주세요 " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsn-Tc-TRs">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="애칭을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsn-Tc-TRs">
                                 <rect key="frame" x="30" y="134" width="333" height="50"/>
                                 <color key="tintColor" name="textColor"/>
                                 <constraints>
@@ -1164,11 +1207,12 @@
                     <connections>
                         <outlet property="label" destination="fsn-Tc-TRs" id="fKc-fk-4wE"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToMain" id="96x-yI-9Rq"/>
+                        <segue destination="m4T-NU-eMn" kind="show" identifier="showSerialNumber" id="VxU-sm-Mjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngB-zm-kSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5155" y="715"/>
+            <point key="canvasLocation" x="6081.679389312977" y="714.78873239436621"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rI0-v6-sj3">
@@ -1189,10 +1233,169 @@
             </objects>
             <point key="canvasLocation" x="981" y="715"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="WWh-7K-fE7">
+            <objects>
+                <viewController id="Oni-ym-I08" customClass="TestViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sZV-nw-ZQc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDc-hY-1FX">
+                                <rect key="frame" x="172" y="183" width="49" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="get"/>
+                                <connections>
+                                    <action selector="download:" destination="Oni-ym-I08" eventType="touchUpInside" id="uHr-SH-XEK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiI-jL-0vU">
+                                <rect key="frame" x="165" y="251" width="63" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="send"/>
+                                <connections>
+                                    <action selector="upload:" destination="Oni-ym-I08" eventType="touchUpInside" id="ihm-dZ-YQ0"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-Va-Uyk">
+                                <rect key="frame" x="46" y="415" width="301" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="zQa-n1-YlQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hm7-U0-faq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JiI-jL-0vU" firstAttribute="leading" secondItem="Hm7-U0-faq" secondAttribute="leading" constant="165" id="1uv-oE-Df9"/>
+                            <constraint firstItem="JiI-jL-0vU" firstAttribute="centerX" secondItem="sZV-nw-ZQc" secondAttribute="centerX" id="Qjz-Gc-04w"/>
+                            <constraint firstItem="bDc-hY-1FX" firstAttribute="top" secondItem="Hm7-U0-faq" secondAttribute="top" constant="124" id="cd3-jD-rMM"/>
+                            <constraint firstItem="bDc-hY-1FX" firstAttribute="centerX" secondItem="JiI-jL-0vU" secondAttribute="centerX" id="cxZ-gs-98M"/>
+                            <constraint firstItem="JiI-jL-0vU" firstAttribute="centerX" secondItem="6uL-Va-Uyk" secondAttribute="centerX" id="eKI-U1-kDG"/>
+                            <constraint firstItem="Hm7-U0-faq" firstAttribute="bottom" secondItem="6uL-Va-Uyk" secondAttribute="bottom" constant="163" id="f3d-BO-odd"/>
+                            <constraint firstItem="JiI-jL-0vU" firstAttribute="top" secondItem="bDc-hY-1FX" secondAttribute="bottom" constant="33" id="rvC-fc-Rds"/>
+                            <constraint firstItem="6uL-Va-Uyk" firstAttribute="leading" secondItem="Hm7-U0-faq" secondAttribute="leading" constant="46" id="yoS-nd-4ji"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="6uL-Va-Uyk" id="lMY-a6-hrC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ug9-to-Tdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2190.0763358778627" y="354.92957746478874"/>
+        </scene>
+        <!--Empty View Controller-->
+        <scene sceneID="KYg-Al-Hon">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="1Mg-QT-hSZ" customClass="EmptyViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ku2-LA-2ow">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="X0f-UK-yml">
+                                <rect key="frame" x="30" y="447" width="333" height="119"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYW-mE-JAd">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                        <color key="backgroundColor" name="softGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rV5-JH-WVY"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="zcE-AM-htZ"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="모듈 등록 할래요">
+                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="Q15-Jb-IbN" kind="show" id="wH1-Bz-LlC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8q-pf-hrV">
+                                        <rect key="frame" x="0.0" y="69" width="333" height="50"/>
+                                        <color key="backgroundColor" name="softGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KuV-12-u9A"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="식물 등록 할래요">
+                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="D7E-zX-xSr" kind="show" id="Mgk-de-oGr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Elv-23-dxz">
+                                <rect key="frame" x="46.666666666666657" y="80" width="300" height="328.33333333333331"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="noPlant" translatesAutoresizingMaskIntoConstraints="NO" id="0BO-hb-OqG">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="im2-jd-LZ9"/>
+                                            <constraint firstAttribute="width" constant="300" id="zP0-cA-PU7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그린 메이트가 안 보이네요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1H-EN-Pc9">
+                                        <rect key="frame" x="63.000000000000014" y="308" width="173.66666666666669" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="eNH-hD-fP8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gal-Oz-wGT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Elv-23-dxz" firstAttribute="centerX" secondItem="Ku2-LA-2ow" secondAttribute="centerX" id="BeP-PE-5cu"/>
+                            <constraint firstItem="Elv-23-dxz" firstAttribute="centerX" secondItem="X0f-UK-yml" secondAttribute="centerX" id="THi-n1-JpB"/>
+                            <constraint firstItem="X0f-UK-yml" firstAttribute="top" secondItem="Elv-23-dxz" secondAttribute="bottom" constant="38.666666666666742" id="UxO-Fu-Jl4"/>
+                            <constraint firstItem="Elv-23-dxz" firstAttribute="top" secondItem="Gal-Oz-wGT" secondAttribute="top" constant="80" id="vQZ-G5-cwL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BB3-8Q-3wz"/>
+                    <connections>
+                        <outlet property="moduleButton" destination="fYW-mE-JAd" id="R0U-Is-kuc"/>
+                        <outlet property="plantRegister" destination="h8q-pf-hrV" id="KcH-sl-B52"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzM-W6-P3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-135" y="342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ypd-t2-ZcL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="D7E-zX-xSr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="T0S-y2-wMd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tt3-dj-p53">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Gm-3f-SzM" kind="relationship" relationship="rootViewController" id="htZ-wA-65v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ETJ-lf-jhh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3534" y="715"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jij-Iq-ZMT"/>
-        <segue reference="96x-yI-9Rq"/>
+        <segue reference="Mgk-de-oGr"/>
+        <segue reference="KXa-xu-OA0"/>
+        <segue reference="VxU-sm-Mjj"/>
+        <segue reference="r6J-Y3-Qco"/>
+        <segue reference="Y1c-Vo-gPL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backIcon" width="25" height="24"/>
@@ -1200,6 +1403,7 @@
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="drop" catalog="system" width="96" height="128"/>
         <image name="editIcon" width="24" height="24"/>
+        <image name="noPlant" width="180.5" height="173.5"/>
         <image name="plant1" width="800" height="1000"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="robotIcon" width="30" height="30"/>

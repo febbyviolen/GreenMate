@@ -9,6 +9,11 @@ target 'GreenMate' do
 
     	pod 'RxSwift'
     	pod 'RxCocoa'
+	pod 'Alamofire'
+	pod 'SkeletonView'
+	pod 'AWSS3'
+	pod 'SwiftyJSON'
+
 
   # Pods for GreenMate
 

@@ -16,6 +16,8 @@ class SelectPlantTypeViewController: UIViewController {
     private var filteredPlants: [PlantType] = []
     private var selectedPlant: PlantType?
     
+    var moduleId = ""
+    
     lazy var saveBtn: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +30,8 @@ class SelectPlantTypeViewController: UIViewController {
         button.layer.cornerRadius = 15
         return button
     }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,7 @@ class SelectPlantTypeViewController: UIViewController {
         if segue.identifier == "showTakePictureController" {
             var VC = segue.destination as! TakePictureViewController
             VC.newPlantType = selectedPlant
+            VC.moduleId = moduleId
         }
     }
 
@@ -67,13 +72,21 @@ class SelectPlantTypeViewController: UIViewController {
 extension SelectPlantTypeViewController {
     
     @IBAction func backBtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if navigationController?.topViewController == self {
+            performSegue(withIdentifier: "backToMain", sender: self)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     
     @objc func nextAction() {
         if selectedPlant == nil {
-            //타입 선택 알림
+            ProgressHUD.show("그린메이트 종류를 선택하세요", icon: .failed)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                ProgressHUD.dismiss()
+            }
+            
         } else {
             performSegue(withIdentifier: "showTakePictureController", sender: self)
         }

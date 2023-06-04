@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol DetailBackDelegate {
-    func saveData(new: GreenMate)
-}
-
-class DetailView: UIViewController{
+class DetailView: UIViewController, EditDetailDelegate{
+    
+    func nameChanged(controller: EditDetailView) {
+        plantName.text = controller.textField.text ?? ""
+        controller.navigationController?.popViewController(animated: true)
+    }
     
     var isToDo = true
 
@@ -21,6 +22,7 @@ class DetailView: UIViewController{
     @IBOutlet weak var diaryBtn: UIButton!
     @IBOutlet weak var toDoBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var humidity: UILabel!
     @IBOutlet weak var light: UILabel!
@@ -34,35 +36,51 @@ class DetailView: UIViewController{
     
     
     //to receive the selected item from ViewController
-    var selectedPlant: GreenMate?
+    var selectedMate: Greenmate?
+    var imgsrc: UIImage!
     var disposeBag = DisposeBag()
-    var sPlant = BehaviorSubject<GreenMate?>(value: nil)
     var toDoShown = BehaviorRelay<Bool>(value:true)
     var diaryShown = BehaviorRelay<Bool>(value:false)
     var sortedKeysCount :[Int]?
-    var sortedValues :[Care]?
+    var sortedValues: [Care]?
     var arrCount = [Int]()
-    var sortedKeys : [String]?
+    var sortedKeys: [String]?
+    var network = Networking()
     
+    var diary = [DailyRecordList]()
+    var todo: [Care]?
+    var diaryy = PublishSubject<[DailyRecordList]>()
+    
+    var dict = [String: [Care]]()
+    
+    
+    func getDiary() {
+        if let moduleId = selectedMate?.moduleId {
+            network.getDailyRecordsFunc(moduleId) { records in
+                DispatchQueue.main.async {
+                    self.diaryy.onNext(records)
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getDiary()
+//        plantName.text = delegate?.nameChanged()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableLogic()
+        initData(selectedMate!)
         
-        sPlant.subscribe { [weak self] plant in
-            self?.initData(plant!)
-            self?.selectedPlant = plant
+        diaryy.subscribe { [weak self] record in
+            self?.diary = record
+            self?.changeToDict()
+            self?.tableView.reloadData()
         }
         
-        DataStore.shared.items
-            .subscribe(onNext: { [weak self] plant in
-                if let plantToUpdate = plant.first(where: { $0.ID == self?.selectedPlant?.ID }) {
-                    self?.sPlant.onNext(plantToUpdate)
-                    self?.tableView.reloadData()
-                    self?.tableData()
-                }
-            }).disposed(by: disposeBag)
         
         addShadow(tempBackground)
         addShadow(humidityBackground)
@@ -80,18 +98,21 @@ class DetailView: UIViewController{
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEditDetailView" {
             let VC = segue.destination as? EditDetailView
-            VC?.selectedPlant = selectedPlant
+            VC?.selectedPlant = selectedMate
+            VC?.imgsrc = imgsrc
+            VC?.delegate = self
         }
         else if segue.identifier == "showDeleteGreenMate" {
             let VC = segue.destination as? DeleteGreenMate
-            VC?.selectedPlant = selectedPlant
+            VC?.selectedPlant = selectedMate
         }
         else if segue.identifier == "showCareViewController" {
             let VC = segue.destination as? CareViewController
-            VC?.selectedPlant = selectedPlant
+            VC?.selectedPlant = selectedMate
         }
     }
     
@@ -100,10 +121,27 @@ class DetailView: UIViewController{
 
 extension DetailView {
     
+    func changeToDict() {
+        dict.removeAll()
+        for i in diary {
+            let time = i.time!.split(separator: " ")[0]
+            if (dict[String(time)] != nil) {
+                var curr = dict[String(time)]
+                curr?.append(Care(rawValue: i.dailyRecord) ?? Care.water)
+                dict[String(time)] = curr
+            } else {
+                dict[String(time)] = [Care(rawValue: i.dailyRecord) ?? Care.water]
+            }
+        }
+        
+        tableData()
+    }
+    
     func tableData() {
-        sortedKeysCount = selectedPlant?.diary?.sorted{ $0.key > $1.key }.compactMap{ $0.value.count }
-        sortedValues = selectedPlant?.diary?.sorted{ $0.key > $1.key }.flatMap { $0.value.reversed() }
-        sortedKeys = selectedPlant?.diary?.sorted{ $0.key > $1.key }.compactMap{ $0.key }
+        
+        sortedKeysCount = dict.sorted{ $0.key > $1.key }.compactMap{ $0.value.count }
+        sortedValues = dict.sorted{ $0.key > $1.key }.flatMap { $0.value.reversed() }
+        sortedKeys = dict.sorted{ $0.key > $1.key }.compactMap{ $0.key }
         arrCount = sortedKeys!.indices.map { sortedKeysCount!.prefix($0).reduce(0, +) }
     }
     
@@ -114,14 +152,14 @@ extension DetailView {
                 self?.toDoBtn.tintColor = color
             })
             .disposed(by: disposeBag)
-
+        
         diaryShown
             .map { $0 ? UIColor(named: "darkGreen")! : UIColor.systemGray2 }
             .bind(onNext: { [weak self] color in
                 self?.diaryBtn.tintColor = color
             })
             .disposed(by: disposeBag)
-
+        
         toDoBtn.rx.tap
             .subscribe(onNext: { [weak self] in
                 if self?.toDoShown.value == false {
@@ -131,7 +169,7 @@ extension DetailView {
                 }
             })
             .disposed(by: disposeBag)
-
+        
         diaryBtn.rx.tap
             .subscribe(onNext: { [weak self] in
                 if self?.diaryShown.value == false {
@@ -142,22 +180,23 @@ extension DetailView {
             })
             .disposed(by: disposeBag)
         
-      
+        
     }
     
-    func initData(_ plant: GreenMate) {
+    func initData(_ plant: Greenmate) {
         updateUI(with: plant)
-        plantName.text = plant.name
-        plantType.text = plant.type.name
-        plantBirthday.text = "키우기 시작한지 \(plant.light)일"
+        plantName.text = plant.nickname
+        plantType.text = plant.plantName
+        plantBirthday.text = "키우기 시작한지 \(String(describing: plant.time ?? "0"))일"
     }
     
-    func updateUI(with plant: GreenMate) {
+    
+    func updateUI(with plant: Greenmate) {
         // Update the UI elements with the selected plant data
-        img.image = UIImage(named: plant.img)
+        img.image = imgsrc
         humidity.text = "\(plant.humidity)%"
-        temp.text = "\(plant.temp)°C"
-        light.text = "\(plant.light)"
+        temp.text = "\(plant.temperature)°C"
+        light.text = "\(plant.illuminance)"
     }
     
     func addShadow(_ view: UIView) {
@@ -167,16 +206,14 @@ extension DetailView {
         view.layer.shadowRadius = 2
     }
     
-    
-    
 }
 
 extension DetailView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if toDoShown.value{
-            return (selectedPlant?.toDo?.count ?? 0)
+            return (todo?.count ?? 0)
         } else {
-            return selectedPlant?.diary?.values.flatMap { $0 }.count ?? 0
+            return dict.values.flatMap { $0 }.count
         }
     }
     
@@ -184,12 +221,15 @@ extension DetailView: UITableViewDataSource, UITableViewDelegate {
 
         if toDoShown.value {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ToDoCell
-            let toDo = selectedPlant?.toDo
+            cell.selectionStyle = .none
+            
+            let toDo = todo
             cell.icon.image = toDo![indexPath.item].icon
             cell.label.text = toDo![indexPath.item].name
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "withDateCell") as! WithDateCell
+            cell.selectionStyle = .none
             
             if arrCount.contains(indexPath.item) {
                 cell.backgroundDate.isHidden = false
@@ -214,14 +254,15 @@ extension DetailView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
- 
-        var care = selectedPlant?.toDo![indexPath.item]
-        selectedPlant?.addDiary(care!, for: formatDateForDisplay(date: Date()))
-        selectedPlant?.deleteTodo(care!)
-        
-        DataStore.shared.editItem(selectedPlant!)
-
+        if toDoShown.value{
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            
+            let care = todo![indexPath.item]
+            network.addDailyRecordFunc(selectedMate!.moduleId, care.rawValue) {
+                self.getDiary()
+            }
+            todo?.remove(at: indexPath.item)
+        }
     }
     
     

@@ -13,8 +13,8 @@ class CareViewController: UIViewController {
     
     var careListRelay = BehaviorRelay<[Care]>(value: [])
     let disposeBag = DisposeBag()
-    var selectedPlant: GreenMate!
-    
+    var selectedPlant: Greenmate!
+    var network = Networking()
     var selectedItems = [Care]()
     let picker = UIDatePicker()
     
@@ -46,10 +46,10 @@ class CareViewController: UIViewController {
     @IBAction func saveBtn(_ sender: Any) {
         if !selectedItems.isEmpty{
             for i in selectedItems {
-                selectedPlant.addDiary(i, for: date.text!)
+                network.addDailyRecordFunc(selectedPlant.moduleId, i.rawValue) {
+                    
+                }
             }
-            DataStore.shared.editItem(selectedPlant)
-            print(DataStore.shared.getItems())
         }
         self.navigationController?.popViewController(animated: true)
     }

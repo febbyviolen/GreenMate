@@ -1,4 +1,8 @@
 PODS:
+  - Alamofire (5.6.2)
+  - AWSCore (2.33.0)
+  - AWSS3 (2.33.0):
+    - AWSCore (= 2.33.0)
   - IQKeyboardManagerSwift (6.5.11)
   - ProgressHUD (13.6.2)
   - RxCocoa (6.5.0):
@@ -7,28 +11,44 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SkeletonView (1.30.4)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
+  - AWSS3
   - IQKeyboardManagerSwift
   - ProgressHUD
   - RxCocoa
   - RxSwift
+  - SkeletonView
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AWSCore
+    - AWSS3
     - IQKeyboardManagerSwift
     - ProgressHUD
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SkeletonView
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  AWSCore: ff962198e35c750cb1d59cd459c51f1990e3ec68
+  AWSS3: 910b5a6ec6c6b749f6a0657483118cae54f83a11
   IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 1636644467cc397479ff978e8be08582872e0669
+PODFILE CHECKSUM: fa88c96e23bed0b1bab49438c1d97e9c9be52dbc
 
 COCOAPODS: 1.12.1
