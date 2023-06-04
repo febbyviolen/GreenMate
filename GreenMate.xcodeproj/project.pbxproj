@@ -19,6 +19,7 @@
 		802CAF4B2A029A25005B80D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802CAF492A029A25005B80D1 /* LaunchScreen.storyboard */; };
 		802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF532A03A304005B80D1 /* GreenMateList.swift */; };
 		802CAF562A03A304005B80D1 /* GreenMateList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802CAF542A03A304005B80D1 /* GreenMateList.xib */; };
+		8049CA752A2C8553009C0EA6 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */; };
 		8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352992A10C33700E203BB /* DeleteGreenMate.swift */; };
 		8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529B2A10CC6700E203BB /* CareViewController.swift */; };
 		8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */; };
@@ -60,6 +61,7 @@
 		802CAF4C2A029A25005B80D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		802CAF532A03A304005B80D1 /* GreenMateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenMateList.swift; sourceTree = "<group>"; };
 		802CAF542A03A304005B80D1 /* GreenMateList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreenMateList.xib; sourceTree = "<group>"; };
+		8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		805352992A10C33700E203BB /* DeleteGreenMate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGreenMate.swift; sourceTree = "<group>"; };
 		8053529B2A10CC6700E203BB /* CareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
 		8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				80E2483F2A24503B00D3A3CC /* Networking.swift */,
 				809434542A29C84A00230206 /* AWSS3Manager.swift */,
 				805352A72A11E18A00E203BB /* Model */,
+				8049CA732A2C853B009C0EA6 /* ViewModel */,
 				802CAF522A02ABA0005B80D1 /* ViewController */,
 				802CAF3E2A029A23005B80D1 /* AppDelegate.swift */,
 				802CAF402A029A23005B80D1 /* SceneDelegate.swift */,
@@ -183,6 +186,14 @@
 				809434522A29A06500230206 /* Test2ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8049CA732A2C853B009C0EA6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		805352A72A11E18A00E203BB /* Model */ = {
@@ -323,6 +334,7 @@
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
 				805F65DE2A28726F0039223D /* EmptyViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,
+				8049CA752A2C8553009C0EA6 /* ViewControllerViewModel.swift in Sources */,
 				805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */,
 				80EAF1B52A1A59BA00B78918 /* SelectPlantTypeViewController.swift in Sources */,
 				805352A42A11124700E203BB /* TakePictureViewController.swift in Sources */,
