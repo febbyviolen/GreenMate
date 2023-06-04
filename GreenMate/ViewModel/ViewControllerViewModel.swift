@@ -15,9 +15,7 @@ class ViewControllerViewModel {
     var selectedIndex = 0
     var network = Networking()
     var timer: Timer?
-    
     var plantCount = PublishSubject<Int>()
-    
     var stat = BehaviorRelay<[Int]>(value: [0, 0, 0])
     
     func fetch(){
@@ -28,7 +26,7 @@ class ViewControllerViewModel {
         }
     }
     
-    @objc func fetchEvery5() {
+    @objc func fetchEveryFive() {
         network.getUserAllDataFunc(["masterUser", "greenmate1234"]) { [weak self] greenmate in
             self?.updateStatusData(greenmate)
         }
@@ -41,7 +39,7 @@ class ViewControllerViewModel {
     
     func startTimer() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fetchEvery5), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fetchEveryFive), userInfo: nil, repeats: true)
     }
     
     func downloadImg(_ moduleId: String, completion: @escaping (_ image: UIImage) -> Void){

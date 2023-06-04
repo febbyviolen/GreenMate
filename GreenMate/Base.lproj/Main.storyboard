@@ -15,7 +15,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vtz-cF-EnF">
@@ -302,19 +302,19 @@
                     <navigationItem key="navigationItem" id="2YZ-eO-XA5"/>
                     <connections>
                         <outlet property="addButton" destination="Qba-Bx-tfF" id="l5S-28-WiJ"/>
-                        <outlet property="humidity" destination="4Ys-EM-wfC" id="uNW-bC-1zp"/>
                         <outlet property="humidityBackground" destination="p2c-cy-Ntg" id="xM4-sw-rcO"/>
-                        <outlet property="light" destination="SVq-eo-97p" id="g3c-VK-cZ6"/>
+                        <outlet property="humidityLabel" destination="4Ys-EM-wfC" id="uNW-bC-1zp"/>
                         <outlet property="lightBackground" destination="N66-nf-zJd" id="JqP-Xp-LvU"/>
+                        <outlet property="lightLabel" destination="SVq-eo-97p" id="g3c-VK-cZ6"/>
                         <outlet property="plantList" destination="atV-D7-vbQ" id="mzM-yM-5zi"/>
-                        <outlet property="selectedPlant" destination="ldV-yL-Pxy" id="fMH-54-VS5"/>
-                        <outlet property="statusStack" destination="xnz-rB-Bbk" id="Eeb-vX-LTc"/>
-                        <outlet property="temp" destination="3Xo-kq-Qa7" id="h9R-Q6-ynB"/>
+                        <outlet property="selectedPlantImageView" destination="ldV-yL-Pxy" id="fMH-54-VS5"/>
+                        <outlet property="statusStackView" destination="xnz-rB-Bbk" id="Eeb-vX-LTc"/>
                         <outlet property="tempBackground" destination="3il-zT-qzT" id="YR0-eZ-z1x"/>
+                        <outlet property="tempLabel" destination="3Xo-kq-Qa7" id="h9R-Q6-ynB"/>
                         <outlet property="titlestack" destination="xHR-0f-r0x" id="bPb-pK-Vh3"/>
                         <outlet property="titlestack2" destination="RH3-BT-BTi" id="PKB-87-FNx"/>
-                        <outlet property="userName" destination="Kng-0o-Cdk" id="Wjk-di-riF"/>
-                        <outlet property="userProfile" destination="YA9-BF-Kl6" id="OLD-5o-Asq"/>
+                        <outlet property="userNameLabel" destination="Kng-0o-Cdk" id="Wjk-di-riF"/>
+                        <outlet property="userProfileImageView" destination="YA9-BF-Kl6" id="OLD-5o-Asq"/>
                         <segue destination="6Cq-3D-Ie1" kind="show" identifier="showDetailView" id="6cP-2R-GcT"/>
                         <segue destination="1Mg-QT-hSZ" kind="show" identifier="showIsEmpty" id="Ku4-PO-S9G"/>
                     </connections>
@@ -616,17 +616,17 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="diaryBtn" destination="zOU-ci-JiC" id="QVJ-ca-czu"/>
-                        <outlet property="humidity" destination="Q8n-HI-6Ma" id="ql7-iW-3se"/>
                         <outlet property="humidityBackground" destination="GXZ-uP-vrB" id="gxC-Li-nvR"/>
+                        <outlet property="humidityLabel" destination="Q8n-HI-6Ma" id="ql7-iW-3se"/>
                         <outlet property="img" destination="joA-vu-Zjw" id="VKo-TG-N4N"/>
-                        <outlet property="light" destination="gcA-e8-fJf" id="57z-Hk-5oS"/>
                         <outlet property="lightBackground" destination="FQx-cM-H3g" id="flk-MB-5HQ"/>
-                        <outlet property="plantBirthday" destination="1EB-b6-bGY" id="veT-Ba-7Sp"/>
-                        <outlet property="plantName" destination="0ZH-83-cH9" id="zTs-Gd-Rg1"/>
-                        <outlet property="plantType" destination="efA-Nd-fWw" id="PFX-Zs-q2c"/>
+                        <outlet property="lightLabel" destination="gcA-e8-fJf" id="57z-Hk-5oS"/>
+                        <outlet property="plantBirthdayLabel" destination="1EB-b6-bGY" id="veT-Ba-7Sp"/>
+                        <outlet property="plantNameLabel" destination="0ZH-83-cH9" id="zTs-Gd-Rg1"/>
+                        <outlet property="plantTypeLabel" destination="efA-Nd-fWw" id="PFX-Zs-q2c"/>
                         <outlet property="tableView" destination="mww-Xj-0Qe" id="A5x-29-uHu"/>
-                        <outlet property="temp" destination="iE6-Ud-ZJ8" id="DvW-Rs-SUg"/>
                         <outlet property="tempBackground" destination="tKl-C9-vib" id="dDp-oM-VI4"/>
+                        <outlet property="tempLabel" destination="iE6-Ud-ZJ8" id="DvW-Rs-SUg"/>
                         <outlet property="toDoBtn" destination="qC2-Ut-3GB" id="zfd-1Q-Klu"/>
                     </connections>
                 </viewController>
@@ -709,7 +709,7 @@
             <objects>
                 <viewController id="JeF-82-Vlt" customClass="DeleteGreenMate" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bQ9-BG-eft">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yX-6f-aQo">
@@ -936,7 +936,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="m4T-NU-eMn" customClass="SerialNumberViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="orE-uX-myo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시리얼 넘버 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-7E-B4E">
@@ -1000,7 +1000,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="5Gm-3f-SzM" customClass="SelectPlantTypeViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btu-N8-POt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 종류 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkY-Xz-eGf">
@@ -1076,7 +1076,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="zVO-tf-o6d" customClass="TakePictureViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKC-P7-5n3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-OD-9yG">
@@ -1157,7 +1157,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="v0D-HH-WkK" customClass="NickNameViewController" customModule="GreenMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4AR-W1-htR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OYD-AP-o4T">

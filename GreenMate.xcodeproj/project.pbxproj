@@ -20,6 +20,7 @@
 		802CAF552A03A304005B80D1 /* GreenMateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF532A03A304005B80D1 /* GreenMateList.swift */; };
 		802CAF562A03A304005B80D1 /* GreenMateList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802CAF542A03A304005B80D1 /* GreenMateList.xib */; };
 		8049CA752A2C8553009C0EA6 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */; };
+		8049CA772A2C8BF3009C0EA6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8049CA762A2C8BF3009C0EA6 /* DetailViewModel.swift */; };
 		8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805352992A10C33700E203BB /* DeleteGreenMate.swift */; };
 		8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529B2A10CC6700E203BB /* CareViewController.swift */; };
 		8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */; };
@@ -62,6 +63,7 @@
 		802CAF532A03A304005B80D1 /* GreenMateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenMateList.swift; sourceTree = "<group>"; };
 		802CAF542A03A304005B80D1 /* GreenMateList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreenMateList.xib; sourceTree = "<group>"; };
 		8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		8049CA762A2C8BF3009C0EA6 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		805352992A10C33700E203BB /* DeleteGreenMate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGreenMate.swift; sourceTree = "<group>"; };
 		8053529B2A10CC6700E203BB /* CareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
 		8053529D2A10D0F700E203BB /* CareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */,
+				8049CA762A2C8BF3009C0EA6 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				80E248402A24503B00D3A3CC /* Networking.swift in Sources */,
 				809434512A297D5A00230206 /* TestViewController.swift in Sources */,
 				805352AB2A122E0800E203BB /* Care.swift in Sources */,
+				8049CA772A2C8BF3009C0EA6 /* DetailViewModel.swift in Sources */,
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
 				805F65DE2A28726F0039223D /* EmptyViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,

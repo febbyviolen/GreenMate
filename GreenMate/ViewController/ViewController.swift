@@ -15,17 +15,17 @@ import SkeletonView
 class ViewController: UIViewController {
 
     //MARK: Outlets
-    @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var humidity: UILabel!
-    @IBOutlet weak var light: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var lightLabel: UILabel!
     @IBOutlet weak var tempBackground: UIView!
     @IBOutlet weak var humidityBackground: UIView!
     @IBOutlet weak var lightBackground: UIView!
     @IBOutlet weak var plantList: UICollectionView!
-    @IBOutlet weak var userProfile: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var selectedPlant: UIImageView!
-    @IBOutlet weak var statusStack: UIStackView!
+    @IBOutlet weak var userProfileImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var selectedPlantImageView: UIImageView!
+    @IBOutlet weak var statusStackView: UIStackView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var titlestack2: UIStackView!
     @IBOutlet weak var titlestack: UIStackView!
@@ -39,26 +39,27 @@ class ViewController: UIViewController {
     
     //MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         viewModel.fetch()
-        viewModel.plantCount.subscribe(onNext: { count in
+        viewModel.plantCount
+            .subscribe(onNext: { count in
             if count == 0 {
                 ProgressHUD.animationType = .circleStrokeSpin
                 ProgressHUD.colorBackground = UIColor(named: "background")!
                 ProgressHUD.colorAnimation = UIColor(named: "softGreen")!
                 
-                self.selectedPlant.showAnimatedGradientSkeleton()
-                self.statusStack.showAnimatedGradientSkeleton()
+                self.selectedPlantImageView.showAnimatedGradientSkeleton()
+                self.statusStackView.showAnimatedGradientSkeleton()
                 self.titlestack.showAnimatedGradientSkeleton()
                 self.titlestack2.showAnimatedGradientSkeleton()
-                self.userProfile.showAnimatedGradientSkeleton()
+                self.userProfileImageView.showAnimatedGradientSkeleton()
                 self.addButton.showAnimatedGradientSkeleton()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.performSegue(withIdentifier: "showIsEmpty", sender: self)
                 }
             }
-        })
+        }).disposed(by: disposeBag)
         
     }
     
@@ -71,28 +72,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
-        
-        imgUI(selectedPlant)
-        statusUI(tempBackground)
-        statusUI(humidityBackground)
-        statusUI(lightBackground)
-        updateStatusData()
+        setupUI()
         bindTableData()
         viewModel.startTimer()
-        
         plantList.register(UINib(nibName: "GreenMateList", bundle: nil), forCellWithReuseIdentifier: "greenMateList")
-        selectedPlant.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDetail)))
+        selectedPlantImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDetail)))
         
     }
     
     //to pass the selected item to the DetailView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailView" {
-            let nController = segue.destination as? UINavigationController
-            let destinationVC = nController?.topViewController as? DetailView
-            destinationVC?.selectedMate = viewModel.selectedMate
-            destinationVC?.todo = toDo[viewModel.selectedIndex]
-            destinationVC?.imgsrc = selectedPlant.image
+            guard let nController = segue.destination as? UINavigationController,
+                  let destinationVC = nController.topViewController as? DetailView else {return}
+            destinationVC.selectedMate = viewModel.selectedMate
+            destinationVC.todo = toDo[viewModel.selectedIndex]
+            destinationVC.imgsrc = selectedPlantImageView.image
         }
         
     }
@@ -101,21 +96,19 @@ class ViewController: UIViewController {
 //MARK: Methods
 extension ViewController {
     
-    func bindTableData() {
+    private func bindTableData() {
         plantList.rx.itemSelected
             .bind { [weak self] indexPath in
                 guard let self = self else { return }
-                
                 let plant = viewModel.greenmates.value[indexPath.row]
-                
                 self.viewModel.selectedMate = plant
-                self.humidity.text = "\(plant.humidity)%"
-                self.temp.text = "\(plant.temperature)°C"
-                self.light.text = "\(plant.illuminance)"
-                self.selectedPlant.showAnimatedSkeleton()
+                self.humidityLabel.text = "\(plant.soilWater)%"
+                self.tempLabel.text = "\(plant.temperature)°C"
+                self.lightLabel.text = "\(plant.illuminance)"
+                self.selectedPlantImageView.showAnimatedSkeleton()
                 viewModel.downloadImg(plant.moduleId) { image in
-                    self.selectedPlant.hideSkeleton()
-                    self.selectedPlant.image = image
+                    self.selectedPlantImageView.hideSkeleton()
+                    self.selectedPlantImageView.image = image
                 }
             }
             .disposed(by: disposeBag)
@@ -128,13 +121,13 @@ extension ViewController {
         ){ [self] row, item, cell in
             
             if row == 0 {
-                self.humidity.text = "\(item.soilWater)%"
-                self.temp.text = "\(item.temperature)°C"
-                self.light.text = "\(item.illuminance)"
-                self.selectedPlant.showAnimatedSkeleton()
+                self.humidityLabel.text = "\(item.soilWater)%"
+                self.tempLabel.text = "\(item.temperature)°C"
+                self.lightLabel.text = "\(item.illuminance)"
+                self.selectedPlantImageView.showAnimatedSkeleton()
                 viewModel.downloadImg(item.moduleId) { image in
-                    self.selectedPlant.hideSkeleton()
-                    self.selectedPlant.image = image
+                    self.selectedPlantImageView.hideSkeleton()
+                    self.selectedPlantImageView.image = image
                 }
             }
             
@@ -171,26 +164,26 @@ extension ViewController {
                 let plant = viewModel.greenmates.value[indexPath.row]
                 
                 self.viewModel.selectedMate = plant
-                self.selectedPlant.showAnimatedSkeleton()
+                self.selectedPlantImageView.showAnimatedSkeleton()
                 viewModel.downloadImg(plant.moduleId) { image in
-                    self.selectedPlant.hideSkeleton()
-                    self.selectedPlant.image = image
+                    self.selectedPlantImageView.hideSkeleton()
+                    self.selectedPlantImageView.image = image
                 }
-                self.humidity.text = "\(plant.humidity)%"
-                self.temp.text = "\(plant.temperature)°C"
-                self.light.text = "\(plant.illuminance)"
+                self.humidityLabel.text = "\(plant.humidity)%"
+                self.tempLabel.text = "\(plant.temperature)°C"
+                self.lightLabel.text = "\(plant.illuminance)"
             }
             .disposed(by: disposeBag)
         
     }
     
-    func updateStatusData(){
+    private func updateStatusData(){
         viewModel.stat
             .asObservable()
             .subscribe { val in
-                self.humidity.text = "\(val.element![1])%"
-                self.temp.text = "\(val.element![2])°C"
-                self.light.text = "\(val.element![0])"
+                self.humidityLabel.text = "\(val.element![1])%"
+                self.tempLabel.text = "\(val.element![2])°C"
+                self.lightLabel.text = "\(val.element![0])"
                 
             }.disposed(by: disposeBag)
     }
@@ -199,7 +192,15 @@ extension ViewController {
         performSegue(withIdentifier: "showDetailView", sender: self)
     }
     
-    func statusUI(_ view: UIView) {
+    private func setupUI() {
+        imgUI(selectedPlantImageView)
+        statusUI(tempBackground)
+        statusUI(humidityBackground)
+        statusUI(lightBackground)
+        updateStatusData()
+    }
+    
+    private func statusUI(_ view: UIView) {
         view.layer.shadowOffset = CGSizeMake(0, 1);
         view.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         view.layer.shadowOpacity = 0.1
@@ -207,7 +208,7 @@ extension ViewController {
         view.layer.cornerRadius = 10
     }
     
-    func imgUI (_ view: UIImageView) {
+    private func imgUI (_ view: UIImageView) {
         view.layer.cornerRadius = 10
         view.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         view.layer.borderWidth = 5
