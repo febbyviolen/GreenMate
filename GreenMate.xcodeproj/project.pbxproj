@@ -11,6 +11,7 @@
 		8014F42B2A0A3BA80017F90C /* EditDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F42A2A0A3BA80017F90C /* EditDetailView.swift */; };
 		8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F4312A0A7A5E0017F90C /* ToDoCell.swift */; };
 		8014F4342A0A7A5E0017F90C /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8014F4322A0A7A5E0017F90C /* ToDoCell.xib */; };
+		8022E7882A2F5535005EEA97 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022E7872A2F5535005EEA97 /* StartViewController.swift */; };
 		802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF3E2A029A23005B80D1 /* AppDelegate.swift */; };
 		802CAF412A029A23005B80D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF402A029A23005B80D1 /* SceneDelegate.swift */; };
 		802CAF432A029A23005B80D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802CAF422A029A23005B80D1 /* ViewController.swift */; };
@@ -42,6 +43,10 @@
 		80EAF1B52A1A59BA00B78918 /* SelectPlantTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B42A1A59BA00B78918 /* SelectPlantTypeViewController.swift */; };
 		80EAF1B82A1A59FF00B78918 /* SelectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAF1B62A1A59FF00B78918 /* SelectType.swift */; };
 		80EAF1B92A1A59FF00B78918 /* SelectType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EAF1B72A1A59FF00B78918 /* SelectType.xib */; };
+		80F247922A2F6C20006BF4F9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F247912A2F6C20006BF4F9 /* SignUpViewController.swift */; };
+		80F247942A2F6D3A006BF4F9 /* SignUpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F247932A2F6D3A006BF4F9 /* SignUpDetailViewController.swift */; };
+		80F247962A2F6F90006BF4F9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F247952A2F6F90006BF4F9 /* WelcomeViewController.swift */; };
+		80F247982A2F7093006BF4F9 /* SignUpDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F247972A2F7093006BF4F9 /* SignUpDetailViewModel.swift */; };
 		9763D3E60CE7944F9D78EE19 /* Pods_GreenMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31995DD32F1203287154A2EF /* Pods_GreenMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +57,7 @@
 		8014F42A2A0A3BA80017F90C /* EditDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailView.swift; sourceTree = "<group>"; };
 		8014F4312A0A7A5E0017F90C /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		8014F4322A0A7A5E0017F90C /* ToDoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
+		8022E7872A2F5535005EEA97 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		802CAF3B2A029A23005B80D1 /* GreenMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		802CAF3E2A029A23005B80D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		802CAF402A029A23005B80D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,10 @@
 		80EAF1B42A1A59BA00B78918 /* SelectPlantTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlantTypeViewController.swift; sourceTree = "<group>"; };
 		80EAF1B62A1A59FF00B78918 /* SelectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectType.swift; sourceTree = "<group>"; };
 		80EAF1B72A1A59FF00B78918 /* SelectType.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectType.xib; sourceTree = "<group>"; };
+		80F247912A2F6C20006BF4F9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		80F247932A2F6D3A006BF4F9 /* SignUpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewController.swift; sourceTree = "<group>"; };
+		80F247952A2F6F90006BF4F9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		80F247972A2F7093006BF4F9 /* SignUpDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewModel.swift; sourceTree = "<group>"; };
 		9C5A76136F398A799B621028 /* Pods-GreenMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenMate.debug.xcconfig"; path = "Target Support Files/Pods-GreenMate/Pods-GreenMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +183,10 @@
 		802CAF522A02ABA0005B80D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8022E7872A2F5535005EEA97 /* StartViewController.swift */,
+				80F247912A2F6C20006BF4F9 /* SignUpViewController.swift */,
+				80F247932A2F6D3A006BF4F9 /* SignUpDetailViewController.swift */,
+				80F247952A2F6F90006BF4F9 /* WelcomeViewController.swift */,
 				802CAF422A029A23005B80D1 /* ViewController.swift */,
 				8014F4282A0A26430017F90C /* DetailView.swift */,
 				8014F42A2A0A3BA80017F90C /* EditDetailView.swift */,
@@ -195,6 +209,7 @@
 			children = (
 				8049CA742A2C8553009C0EA6 /* ViewControllerViewModel.swift */,
 				8049CA762A2C8BF3009C0EA6 /* DetailViewModel.swift */,
+				80F247972A2F7093006BF4F9 /* SignUpDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,12 +346,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				80EAF1B82A1A59FF00B78918 /* SelectType.swift in Sources */,
+				8022E7882A2F5535005EEA97 /* StartViewController.swift in Sources */,
 				80E248402A24503B00D3A3CC /* Networking.swift in Sources */,
 				809434512A297D5A00230206 /* TestViewController.swift in Sources */,
 				805352AB2A122E0800E203BB /* Care.swift in Sources */,
+				80F247942A2F6D3A006BF4F9 /* SignUpDetailViewController.swift in Sources */,
 				8049CA772A2C8BF3009C0EA6 /* DetailViewModel.swift in Sources */,
 				802CAF432A029A23005B80D1 /* ViewController.swift in Sources */,
 				805F65DE2A28726F0039223D /* EmptyViewController.swift in Sources */,
+				80F247982A2F7093006BF4F9 /* SignUpDetailViewModel.swift in Sources */,
+				80F247962A2F6F90006BF4F9 /* WelcomeViewController.swift in Sources */,
 				802CAF3F2A029A23005B80D1 /* AppDelegate.swift in Sources */,
 				8049CA752A2C8553009C0EA6 /* ViewControllerViewModel.swift in Sources */,
 				805352A22A10F4A000E203BB /* SerialNumberViewController.swift in Sources */,
@@ -345,6 +364,7 @@
 				809434552A29C84A00230206 /* AWSS3Manager.swift in Sources */,
 				8053529F2A10D0F700E203BB /* CareCollectionViewCell.swift in Sources */,
 				8053529C2A10CC6700E203BB /* CareViewController.swift in Sources */,
+				80F247922A2F6C20006BF4F9 /* SignUpViewController.swift in Sources */,
 				8053529A2A10C33700E203BB /* DeleteGreenMate.swift in Sources */,
 				809434532A29A06500230206 /* Test2ViewController.swift in Sources */,
 				8014F4332A0A7A5E0017F90C /* ToDoCell.swift in Sources */,

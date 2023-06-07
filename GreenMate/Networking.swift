@@ -10,15 +10,6 @@ import Alamofire
 
 class Networking {
     
-    let userIDParameters: [String: Any] = [
-        "id": "masterUser",
-        "password": "greenmate1234"
-    ]
-    
-    let USERID =  "masterUser"
-    
-    
-    
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -30,10 +21,16 @@ class Networking {
     let registerModule = "http://3.39.202.153:8080/checkModuleExistence.do"
     let relationModule = "http://3.39.202.153:8080/relationModule.do"
     let updateGreenMateNickName = "http://3.39.202.153:8080/updateGreenmateNickname.do"
+    let signUp = "http://3.39.202.153:8080/signUp.do"
+    let login = "http://3.39.202.153:8080/login.do"
     
-    func getUserAllDataFunc(_ parameters : [String], completion: @escaping ([Greenmate]) -> Void) {
-        AF.request(getUserAllData, method: .post, parameters: userIDParameters, encoding: JSONEncoding.default, headers: headers)
-            .responseDecodable(of: GreenMateResponse.self) { [weak self] response in
+    func getUserAllDataFunc(_ parameter : [String], completion: @escaping ([Greenmate]) -> Void) {
+        let parameters: [String: Any] = [
+            "id" : parameter[0],
+            "password" : parameter[1]
+        ]
+        AF.request(getUserAllData, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseDecodable(of: GreenMateResponse.self) { response in
                 switch response.result {
                 case .success(let greenMateResponse):
                     let greenMates = greenMateResponse.greenmateList
@@ -107,12 +104,14 @@ class Networking {
                 }
             }
     }
-
-  
+    
+    
     func relationModuleFunc(_ parameters: [String]) {
+        let defaults = UserDefaults.standard
+        
         AF.request(relationModule, method: .post, parameters: [
             "moduleId": parameters[0],
-            "userId": USERID,
+            "userId": defaults.string(forKey: "UserID"),
             "plantName": parameters[1],
             "nickname": parameters[2],
             "photo":parameters[3]
@@ -120,7 +119,7 @@ class Networking {
             debugPrint(response)
         }
     }
-
+    
     
     func updateGreenMateNickNameFunc(_ parameters : [String]) {
         let parameter: [String: Any] = [
@@ -129,7 +128,44 @@ class Networking {
         ]
         
         AF.request(updateGreenMateNickName, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).response { response in
-//            debugPrint(response)
+            //            debugPrint(response)
         }
+    }
+    
+    func signUpFunc(_ parameters : [String]) {
+        let parameter: [String: Any] = [
+            "name" : parameters[0],
+            "id" : parameters[2],
+            "password" : parameters[1],
+            "birth" : "",
+            "photo" : ""
+        ]
+        
+        AF.request(signUp, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).response { response in
+            debugPrint(response)
+        }
+    }
+    
+    func loginFunc(_ parameters : [String], completion: @escaping ([UserInfo]?) -> Void) {
+        let parameter: [String: Any] = [
+            "id" : parameters[0],
+            "password" : parameters[1]
+        ]
+        
+        AF.request(login, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers)
+            .responseDecodable(of: UserInfoResponse.self) { response in
+                switch response.result {
+                case .success(let UserInfoResponse):
+                    debugPrint(response)
+                    let infos = UserInfoResponse.user
+                    completion(infos)
+                    
+                case .failure(let error):
+                    // Handle the failure
+                    print(error)
+                    completion([])
+                }
+                
+            }
     }
 }

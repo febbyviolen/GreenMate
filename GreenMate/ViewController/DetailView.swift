@@ -36,6 +36,7 @@ class DetailView: UIViewController, EditDetailDelegate{
     var viewModel = DetailViewModel()
     var disposeBag = DisposeBag()
     var network = Networking()
+    var viewViewModel = ViewControllerViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getDiary()
@@ -131,9 +132,9 @@ extension DetailView {
     private func updateUI(with plant: Greenmate) {
         // Update the UI elements with the selected plant data
         img.image = viewModel.imgsrc
-        humidityLabel.text = "\(plant.humidity)%"
-        tempLabel.text = "\(plant.temperature)°C"
-        lightLabel.text = "\(plant.illuminance)"
+        humidityLabel.text = viewViewModel.soilWaterHandle(plant.soilWater)
+        tempLabel.text = viewViewModel.temperatureHandle(plant.temperature)
+        lightLabel.text = viewViewModel.lightHandle(plant.illuminance)
     }
     
     private func addShadow(_ view: UIView) {

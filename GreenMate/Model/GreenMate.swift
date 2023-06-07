@@ -37,3 +37,14 @@ struct DailyRecordListResponse: Decodable {
 struct RegisterModuleResponse: Decodable {
     let result: Int
 }
+
+struct UserInfo: Decodable {
+    let name: String
+    let id: String
+    let password: String
+    let birth: String
+}
+
+struct UserInfoResponse: Decodable {
+    let user: [UserInfo]?
+}

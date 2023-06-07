@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var titlestack2: UIStackView!
     @IBOutlet weak var titlestack: UIStackView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     //MARK: Properties
     private var viewModel = ViewControllerViewModel()
@@ -85,9 +86,9 @@ class ViewController: UIViewController {
         if segue.identifier == "showDetailView" {
             guard let nController = segue.destination as? UINavigationController,
                   let destinationVC = nController.topViewController as? DetailView else {return}
-            destinationVC.selectedMate = viewModel.selectedMate
-            destinationVC.todo = toDo[viewModel.selectedIndex]
-            destinationVC.imgsrc = selectedPlantImageView.image
+            destinationVC.viewModel.selectedMate = viewModel.selectedMate
+            destinationVC.viewModel.todo = toDo[viewModel.selectedIndex]
+            destinationVC.viewModel.imgsrc = selectedPlantImageView.image
         }
         
     }
@@ -97,81 +98,64 @@ class ViewController: UIViewController {
 extension ViewController {
     
     private func bindTableData() {
-        plantList.rx.itemSelected
-            .bind { [weak self] indexPath in
-                guard let self = self else { return }
-                let plant = viewModel.greenmates.value[indexPath.row]
-                self.viewModel.selectedMate = plant
-                self.humidityLabel.text = "\(plant.soilWater)%"
-                self.tempLabel.text = "\(plant.temperature)°C"
-                self.lightLabel.text = "\(plant.illuminance)"
-                self.selectedPlantImageView.showAnimatedSkeleton()
-                viewModel.downloadImg(plant.moduleId) { image in
-                    self.selectedPlantImageView.hideSkeleton()
-                    self.selectedPlantImageView.image = image
-                }
-            }
-            .disposed(by: disposeBag)
         
         //bind items
         viewModel.greenmates.bind(
             to: plantList.rx.items(
                 cellIdentifier: "greenMateList",
                 cellType: GreenMateList.self)
-        ){ [self] row, item, cell in
+        ){ [weak self] row, item, cell in
             
             if row == 0 {
-                self.humidityLabel.text = "\(item.soilWater)%"
-                self.tempLabel.text = "\(item.temperature)°C"
-                self.lightLabel.text = "\(item.illuminance)"
-                self.selectedPlantImageView.showAnimatedSkeleton()
-                viewModel.downloadImg(item.moduleId) { image in
-                    self.selectedPlantImageView.hideSkeleton()
-                    self.selectedPlantImageView.image = image
+                self?.humidityLabel.text = self?.viewModel.soilWaterHandle(item.soilWater)
+                self?.tempLabel.text = self?.viewModel.temperatureHandle(item.temperature)
+                self?.lightLabel.text = self?.viewModel.lightHandle(item.illuminance)
+                self?.selectedPlantImageView.showAnimatedSkeleton()
+                self?.viewModel.downloadImg(item.moduleId) { image in
+                    self?.selectedPlantImageView.hideSkeleton()
+                    self?.selectedPlantImageView.image = image
                 }
             }
             
             cell.plantName.text = item.nickname
             cell.plantType.text = item.plantName
             cell.img.showAnimatedSkeleton()
-            viewModel.downloadImg(item.moduleId) { image in
+            self?.viewModel.downloadImg(item.moduleId) { image in
                 cell.img.hideSkeleton()
                 cell.img.image = image
             }
             
             var todo = [Care]()
-            if item.soilWater <= 200 {
-                cell.first.isHidden = false
+            if self?.viewModel.soilWaterHandle(item.soilWater) == "나쁨" {
                 todo.append(.water)
             }
-            if item.illuminance <= 50 {
-                cell.second.isHidden = false
+            if self?.viewModel.lightHandle(item.illuminance) == "나쁨" {
                 todo.append(.vitamin)
             }
-            if item.temperature <= 20 {
-                cell.third.isHidden = false
+            if self?.viewModel.temperatureHandle(item.illuminance) == "나쁨" {
                 todo.append(.air)
             }
             
-            self.toDo.append(todo)
-            self.viewModel.selectedIndex = row
+            self?.toDo.append(todo)
+            self?.viewModel.selectedIndex = row
         }.disposed(by: disposeBag)
         
         plantList.rx.itemSelected
             .bind { [weak self] indexPath in
                 guard let self = self else { return }
-                
                 let plant = viewModel.greenmates.value[indexPath.row]
                 
                 self.viewModel.selectedMate = plant
                 self.selectedPlantImageView.showAnimatedSkeleton()
+                
+//                if self.viewModel.imgStorage[]
                 viewModel.downloadImg(plant.moduleId) { image in
                     self.selectedPlantImageView.hideSkeleton()
                     self.selectedPlantImageView.image = image
                 }
-                self.humidityLabel.text = "\(plant.humidity)%"
-                self.tempLabel.text = "\(plant.temperature)°C"
-                self.lightLabel.text = "\(plant.illuminance)"
+                self.humidityLabel.text = viewModel.soilWaterHandle(plant.soilWater)
+                self.tempLabel.text = viewModel.temperatureHandle(plant.temperature)
+                self.lightLabel.text = viewModel.lightHandle(plant.illuminance)
             }
             .disposed(by: disposeBag)
         
@@ -181,9 +165,9 @@ extension ViewController {
         viewModel.stat
             .asObservable()
             .subscribe { val in
-                self.humidityLabel.text = "\(val.element![1])%"
-                self.tempLabel.text = "\(val.element![2])°C"
-                self.lightLabel.text = "\(val.element![0])"
+                self.humidityLabel.text = self.viewModel.soilWaterHandle(val.element![1])
+                self.tempLabel.text = self.viewModel.soilWaterHandle(val.element![2])
+                self.lightLabel.text = self.viewModel.soilWaterHandle(val.element![0])
                 
             }.disposed(by: disposeBag)
     }

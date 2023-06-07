@@ -18,8 +18,14 @@ class ViewControllerViewModel {
     var plantCount = PublishSubject<Int>()
     var stat = BehaviorRelay<[Int]>(value: [0, 0, 0])
     
+    
     func fetch(){
-        network.getUserAllDataFunc(["masterUser", "greenmate1234"]) { [weak self] greenmate in
+        
+        let defaults = UserDefaults.standard
+        guard let USERID = defaults.string(forKey: "UserId") else {return}
+        guard let USERPASS = defaults.string(forKey: "UserPassword") else {return}
+        
+        network.getUserAllDataFunc([USERID, USERPASS]) { [weak self] greenmate in
             self?.greenmates.accept(greenmate)
             self?.selectedMate = greenmate.first
             self?.plantCount.onNext(greenmate.count)
@@ -66,6 +72,31 @@ class ViewControllerViewModel {
                 
             }
         }
+    }
+    
+    func soilWaterHandle(_ stat: Int) -> String{
+        if stat < 25 {
+            return "나쁨"
+        } else if stat > 38 {
+            return "나쁨"
+        }
+        return "좋음"
+    }
+    
+    func temperatureHandle(_ stat: Int) -> String{
+        if stat <= 15 {
+            return "나쁨"
+        }
+        return "좋음"
+    }
+    
+    func lightHandle(_ stat: Int) -> String{
+        if stat < 15 {
+            return "나쁨"
+        } else if stat > 25 {
+            return "나쁨"
+        }
+        return "좋음"
     }
 }
 
