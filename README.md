@@ -10,3 +10,17 @@
 - 황유란: 안드로이드 앱 개발
 - 이채린: 백엔드
 - 정서현: 웹(랜딩 페이지)
+
+## 프로젝트에서 사용한 기술:
+**swift/iOS**
+- UIKit
+- Cocoapods
+- keyboardLayoutGuide
+
+**사용한 라이브러리:** 
+- RXSwift
+- RXCocoa
+- Alamofire
+- ProgressHUD
+- SkeletonView
+- AWSS3
