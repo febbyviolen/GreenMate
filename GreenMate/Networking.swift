@@ -111,7 +111,7 @@ class Networking {
         
         AF.request(relationModule, method: .post, parameters: [
             "moduleId": parameters[0],
-            "userId": defaults.string(forKey: "UserID"),
+            "userId": defaults.string(forKey: "UserId"),
             "plantName": parameters[1],
             "nickname": parameters[2],
             "photo":parameters[3]

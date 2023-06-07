@@ -74,6 +74,32 @@ class ViewControllerViewModel {
         }
     }
     
+    func downloadProfileImg(_ userID: String, completion: @escaping (_ image: UIImage) -> Void){
+        let fileName = "\(userID)-Profile" + (".jpeg") 
+        var image = UIImage()
+        
+        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        
+        
+        AWSS3Manager.shared.downloadFile(fileName: fileName, fileURL: fileURL, progress: { (downloadProgress) in
+            // Handle the download progress if needed
+        }) { (localURL, error) in
+            if let error = error {
+                print("Error downloading file: \(error.localizedDescription)")
+                completion(image)
+            } else if let localURL = localURL {
+                // File downloaded successfully, use the localURL as needed
+                print("File downloaded at path: \(localURL)")
+                
+                if let imageData = try? Data(contentsOf: localURL as! URL) {
+                    image = UIImage(data: imageData) ?? UIImage(named: "plant1")!
+                    completion(image)
+                }
+                
+            }
+        }
+    }
+    
     func soilWaterHandle(_ stat: Int) -> String{
         if stat < 25 {
             return "나쁨"

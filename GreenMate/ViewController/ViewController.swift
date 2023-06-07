@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var titlestack2: UIStackView!
     @IBOutlet weak var titlestack: UIStackView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     //MARK: Properties
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     var networking = Networking()
     var toDo = [[Care]]()
+    let defaults = UserDefaults.standard
  
     
     //MARK: Lifecycle
@@ -177,6 +179,11 @@ extension ViewController {
     }
     
     private func setupUI() {
+        viewModel.downloadProfileImg(defaults.string(forKey: "UserId") ?? "") { [weak self] image in
+            self?.profileImageView.image = image
+            self?.profileImageView.layer.cornerRadius = (self?.profileImageView.frame.size.width ?? 0) / 2
+        }
+        nameLabel.text = "안녕, \(defaults.string(forKey: "UserName") ?? "친구")🍃"
         imgUI(selectedPlantImageView)
         statusUI(tempBackground)
         statusUI(humidityBackground)

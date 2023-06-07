@@ -57,7 +57,7 @@ class SignUpViewController: UIViewController {
             } else {
                 self?.defaults.set(self?.idTextField.text ?? "", forKey: "UserId")
                 self?.defaults.set(self?.passwordTextField.text ?? "", forKey: "UserPassword")
-                self?.defaults.set(info?.first?.name , forKey: "UserName")
+                self?.defaults.set(info?.first?.name ?? "친구" , forKey: "UserName")
                 
                 self?.performSegue(withIdentifier: "showViewController", sender: self)
             }

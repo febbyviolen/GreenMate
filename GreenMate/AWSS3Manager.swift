@@ -62,6 +62,30 @@ class AWSS3Manager {
         }
     }
     
+    func uploadProfileImage(image: UIImage, userID: String, progress: progressBlock?, completion: completionBlock?) {
+        
+        AWSS3Dec()
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else {
+            let error = NSError(domain:"", code:402, userInfo:[NSLocalizedDescriptionKey: "invalid image"])
+            completion?(nil, error)
+            return
+        }
+        
+        let tmpPath = NSTemporaryDirectory() as String
+        let fileName: String = "\(userID)-Profile" + (".jpeg")
+        let filePath = tmpPath + "/" + fileName
+        let fileUrl = URL(fileURLWithPath: filePath)
+        
+        do {
+            try imageData.write(to: fileUrl)
+            self.uploadfile(fileUrl: fileUrl, fileName: fileName, contenType: "image", progress: progress, completion: completion)
+        } catch {
+            let error = NSError(domain:"", code:402, userInfo:[NSLocalizedDescriptionKey: "invalid image"])
+            print(error)
+            completion?(nil, error)
+        }
+    }
+    
     
     // Upload files like Text, Zip, etc from local path url
     func uploadOtherFile(fileUrl: URL, conentType: String, progress: progressBlock?, completion: completionBlock?) {
@@ -178,6 +202,7 @@ class AWSS3Manager {
             return nil
         }
     }
+    
 
     
 }

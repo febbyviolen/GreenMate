@@ -22,17 +22,17 @@
                                 <rect key="frame" x="1.6666666666666572" y="133" width="390" height="394"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GaF-hG-hbb">
-                                <rect key="frame" x="70" y="489.33333333333331" width="253" height="48.666666666666686"/>
+                                <rect key="frame" x="71.000000000000014" y="489.33333333333331" width="251.33333333333337" height="48.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="괜찮아 다 털어놔도 돼!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwz-cn-hIC">
-                                        <rect key="frame" x="51.333333333333329" y="0.0" width="150.33333333333337" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="50.666666666666671" y="0.0" width="150" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우리집의 새로운 식물 친구 그린메이트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDT-be-JZj">
-                                        <rect key="frame" x="0.0" y="28.333333333333314" width="253" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="28.333333333333314" width="251.33333333333334" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -70,6 +70,7 @@
                     <connections>
                         <outlet property="nextButton" destination="2G9-Ao-tWj" id="aJk-Ce-gRT"/>
                         <segue destination="1ol-ps-7om" kind="show" identifier="showSignUpView" id="BBf-gP-014"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showViewController" id="7z3-z5-s3e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eW-8x-vYj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -188,7 +189,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="U6N-jO-NtQ">
                                 <rect key="frame" x="20" y="208" width="353" height="316"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="cYu-e4-U5p">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="cYu-e4-U5p">
                                         <rect key="frame" x="76.666666666666686" y="0.0" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Q80-a1-TYK"/>
@@ -245,6 +246,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="cYu-e4-U5p" id="JHc-n7-H69"/>
                         <outlet property="nameTextField" destination="PxI-JD-sJ3" id="bG3-qb-Blk"/>
                         <segue destination="JhN-js-Y4Z" kind="show" identifier="showWelcomeView" id="PLg-FV-o3A"/>
                     </connections>
@@ -367,7 +369,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YA9-BF-Kl6">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YA9-BF-Kl6">
                                         <rect key="frame" x="266" y="1" width="67" height="65.666666666666671"/>
                                         <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
@@ -631,6 +633,7 @@
                         <outlet property="lightLabel" destination="SVq-eo-97p" id="g3c-VK-cZ6"/>
                         <outlet property="nameLabel" destination="Kng-0o-Cdk" id="xAE-E8-5rx"/>
                         <outlet property="plantList" destination="atV-D7-vbQ" id="mzM-yM-5zi"/>
+                        <outlet property="profileImageView" destination="YA9-BF-Kl6" id="RJ0-fg-7La"/>
                         <outlet property="selectedPlantImageView" destination="ldV-yL-Pxy" id="fMH-54-VS5"/>
                         <outlet property="statusStackView" destination="xnz-rB-Bbk" id="Eeb-vX-LTc"/>
                         <outlet property="tempBackground" destination="3il-zT-qzT" id="YR0-eZ-z1x"/>
@@ -1737,7 +1740,7 @@
         <segue reference="KXa-xu-OA0"/>
         <segue reference="VxU-sm-Mjj"/>
         <segue reference="r6J-Y3-Qco"/>
-        <segue reference="hw3-9q-g0A"/>
+        <segue reference="7z3-z5-s3e"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="applogo" width="2048" height="2048"/>
