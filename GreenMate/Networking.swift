@@ -134,8 +134,8 @@ class Networking {
     
     func signUpFunc(_ parameters : [String]) {
         let parameter: [String: Any] = [
-            "name" : parameters[0],
-            "id" : parameters[2],
+            "id" : parameters[0],
+            "name" : parameters[2],
             "password" : parameters[1],
             "birth" : "",
             "photo" : ""

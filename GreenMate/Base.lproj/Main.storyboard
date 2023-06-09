@@ -157,7 +157,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="backIcon" id="dxu-s1-5jr">
                             <color key="tintColor" name="textColor"/>
                             <connections>
-                                <action selector="backButton:" destination="z2a-Wg-Jen" id="VA5-AJ-Ydb"/>
+                                <action selector="backBtn:" destination="1ol-ps-7om" id="pzr-OG-xWt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -187,17 +187,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="U6N-jO-NtQ">
-                                <rect key="frame" x="20" y="208" width="353" height="316"/>
+                                <rect key="frame" x="20" y="208" width="353" height="266"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="cYu-e4-U5p">
-                                        <rect key="frame" x="76.666666666666686" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="101.66666666666669" y="0.0" width="150" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Q80-a1-TYK"/>
-                                            <constraint firstAttribute="width" constant="200" id="YNT-GD-RxR"/>
+                                            <constraint firstAttribute="height" constant="150" id="Q80-a1-TYK"/>
+                                            <constraint firstAttribute="width" constant="150" id="YNT-GD-RxR"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aNq-lo-i4U">
-                                        <rect key="frame" x="0.0" y="227" width="353" height="89"/>
+                                        <rect key="frame" x="0.0" y="177" width="353" height="89"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-cd-Icf">
                                                 <rect key="frame" x="159.33333333333334" y="0.0" width="34.666666666666657" height="24"/>
@@ -241,7 +241,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="backIcon" id="U2s-31-AOx">
                             <color key="tintColor" name="textColor"/>
                             <connections>
-                                <action selector="backButton:" destination="z2a-Wg-Jen" id="c19-ov-wsK"/>
+                                <action selector="backBtn:" destination="hQd-bY-vzo" id="jlZ-Ob-Su0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -316,14 +316,6 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="kqm-Ec-yga">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="backIcon" id="He2-9B-ZCg">
-                            <color key="tintColor" name="textColor"/>
-                            <connections>
-                                <action selector="backButton:" destination="z2a-Wg-Jen" id="07K-0O-INJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textLabel" destination="lYd-JO-6zi" id="cfi-Wy-Ta9"/>
@@ -419,7 +411,7 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="130.66999999999999" id="YBm-PL-IuS"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130.66999999999999" id="YBm-PL-IuS"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -1740,7 +1732,7 @@
         <segue reference="KXa-xu-OA0"/>
         <segue reference="VxU-sm-Mjj"/>
         <segue reference="r6J-Y3-Qco"/>
-        <segue reference="7z3-z5-s3e"/>
+        <segue reference="pHj-hs-bcM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="applogo" width="2048" height="2048"/>

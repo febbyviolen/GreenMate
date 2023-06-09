@@ -49,6 +49,10 @@ class SignUpViewController: UIViewController {
         }
     }
 
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func nextAction() {
         network.loginFunc([idTextField.text ?? "", passwordTextField.text ?? "" ]) { [weak self] info in
             print("result: \(info)")

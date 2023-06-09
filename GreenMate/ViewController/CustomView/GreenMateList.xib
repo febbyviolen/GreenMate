@@ -49,16 +49,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-FR-ncg">
-                                <rect key="frame" x="70" y="183.66666666666669" width="56" height="17.333333333333343"/>
+                                <rect key="frame" x="125.99999999999999" y="201" width="0.0" height="0.0"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needTemp" translatesAutoresizingMaskIntoConstraints="NO" id="GEk-XT-U8u">
-                                        <rect key="frame" x="0.0" y="0.0" width="18" height="17.333333333333332"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needTemp" translatesAutoresizingMaskIntoConstraints="NO" id="GEk-XT-U8u">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="17.333333333333332"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needLight" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-4Y-Xir">
-                                        <rect key="frame" x="19" y="0.0" width="18" height="17.333333333333332"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needLight" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-4Y-Xir">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="17.333333333333332"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needHumidity" translatesAutoresizingMaskIntoConstraints="NO" id="FRf-Nr-G8w">
-                                        <rect key="frame" x="38" y="0.0" width="18" height="17.333333333333332"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="needHumidity" translatesAutoresizingMaskIntoConstraints="NO" id="FRf-Nr-G8w">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="17.333333333333332"/>
                                     </imageView>
                                 </subviews>
                             </stackView>

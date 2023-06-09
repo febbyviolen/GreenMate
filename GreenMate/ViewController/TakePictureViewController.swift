@@ -19,7 +19,6 @@ class TakePictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         againBtn.layer.cornerRadius = 15
         nextBtn.layer.cornerRadius = 15
         openCameraButtonTapped()
@@ -61,8 +60,6 @@ extension TakePictureViewController: UIImagePickerControllerDelegate, UINavigati
         }
     }
     
-    // MARK: - UIImagePickerControllerDelegate
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
             // Use the captured image
@@ -72,6 +69,45 @@ extension TakePictureViewController: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
     }
     
+    func showImagePickerOptions() {
+        let alertVC = UIAlertController(title: "사진 업로드", message: "", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "카메라로 촬영하기", style: .default) { [weak self] (action) in
+            guard let self = self else {return}
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                present(imagePicker, animated: true, completion: nil)
+            } else {
+                img.image = UIImage(named: "applogo")
+            }
+        }
+        
+        let libraryAction = UIAlertAction(title: "사진 선택하기", style: .default){ [weak self] (action) in
+            guard let self = self else {return}
+            
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = false
+                present(imagePicker, animated: true, completion: nil)
+            } else {
+                img.image = UIImage(named: "applogo")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alertVC.addAction(cameraAction)
+        alertVC.addAction(libraryAction)
+        alertVC.addAction(cancelAction)
+        self.present(alertVC, animated: true, completion: nil)
+    }
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }

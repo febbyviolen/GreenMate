@@ -77,6 +77,8 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         setupUI()
         bindTableData()
+        
+        //timer to get plant's real time data every 5 sec
         viewModel.startTimer()
         plantList.register(UINib(nibName: "GreenMateList", bundle: nil), forCellWithReuseIdentifier: "greenMateList")
         selectedPlantImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDetail)))
@@ -109,9 +111,9 @@ extension ViewController {
         ){ [weak self] row, item, cell in
             
             if row == 0 {
-                self?.humidityLabel.text = self?.viewModel.soilWaterHandle(item.soilWater)
-                self?.tempLabel.text = self?.viewModel.temperatureHandle(item.temperature)
-                self?.lightLabel.text = self?.viewModel.lightHandle(item.illuminance)
+                self?.humidityLabel.text = "\(item.soilWater)"
+                self?.tempLabel.text = "\(item.temperature)"
+                self?.lightLabel.text = "\(item.illuminance)"
                 self?.selectedPlantImageView.showAnimatedSkeleton()
                 self?.viewModel.downloadImg(item.moduleId) { image in
                     self?.selectedPlantImageView.hideSkeleton()
@@ -142,6 +144,7 @@ extension ViewController {
             self?.viewModel.selectedIndex = row
         }.disposed(by: disposeBag)
         
+        //item selected
         plantList.rx.itemSelected
             .bind { [weak self] indexPath in
                 guard let self = self else { return }
@@ -155,21 +158,22 @@ extension ViewController {
                     self.selectedPlantImageView.hideSkeleton()
                     self.selectedPlantImageView.image = image
                 }
-                self.humidityLabel.text = viewModel.soilWaterHandle(plant.soilWater)
-                self.tempLabel.text = viewModel.temperatureHandle(plant.temperature)
-                self.lightLabel.text = viewModel.lightHandle(plant.illuminance)
+                self.humidityLabel.text = "\(plant.soilWater)"
+                self.tempLabel.text = "\(plant.temperature)"
+                self.lightLabel.text = "\(plant.illuminance)"
             }
             .disposed(by: disposeBag)
         
     }
     
+    //updateUI every 5 seconds
     private func updateStatusData(){
         viewModel.stat
             .asObservable()
             .subscribe { val in
-                self.humidityLabel.text = self.viewModel.soilWaterHandle(val.element![1])
-                self.tempLabel.text = self.viewModel.soilWaterHandle(val.element![2])
-                self.lightLabel.text = self.viewModel.soilWaterHandle(val.element![0])
+                self.humidityLabel.text = "\(val.element![1])"
+                self.tempLabel.text = "\(val.element![2])"
+                self.lightLabel.text = "\(val.element![0])"
                 
             }.disposed(by: disposeBag)
     }

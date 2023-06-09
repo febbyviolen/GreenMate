@@ -47,11 +47,13 @@ class DetailView: UIViewController, EditDetailDelegate{
         
         tableLogic()
         initData(viewModel.selectedMate!)
+        
         viewModel.diaryy.subscribe { [weak self] record in
             self?.viewModel.diary = record
             self?.viewModel.changeToDict()
             self?.tableView.reloadData()
         }
+        
         setupUI()
         tableView.dataSource = self
         tableView.delegate = self
@@ -132,9 +134,9 @@ extension DetailView {
     private func updateUI(with plant: Greenmate) {
         // Update the UI elements with the selected plant data
         img.image = viewModel.imgsrc
-        humidityLabel.text = viewViewModel.soilWaterHandle(plant.soilWater)
-        tempLabel.text = viewViewModel.temperatureHandle(plant.temperature)
-        lightLabel.text = viewViewModel.lightHandle(plant.illuminance)
+        humidityLabel.text = "\(plant.soilWater)"
+        tempLabel.text = "\(plant.temperature)"
+        lightLabel.text = "\(plant.illuminance)"
     }
     
     private func addShadow(_ view: UIView) {
